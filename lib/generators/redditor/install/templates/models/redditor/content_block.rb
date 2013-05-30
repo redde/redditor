@@ -1,3 +1,5 @@
+# coding: utf-8
+
 class Redditor::ContentBlock < ActiveRecord::Base
 
   def self.find_by_position_and_type(position, type, page_id)

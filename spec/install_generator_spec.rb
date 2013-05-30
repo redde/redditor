@@ -14,7 +14,6 @@ describe Redditor::Generators::InstallGenerator do
   after(:all) { FileUtils.rm_rf 'tmp' }
 
   it "generates all models" do
-    # models
     %w{content_block.rb page.rb slider_block.rb text_block.rb video_block.rb}.each do |model|
       assert_file "app/models/redditor/#{model}"
     end
@@ -36,7 +35,7 @@ describe Redditor::Generators::InstallGenerator do
     assert file_list.include? "redditor_create_video_blocks.rb"
     assert file_list.include? "redditor_create_text_blocks.rb"
     assert file_list.include? "redditor_create_slider_blocks.rb"
-    # assert file_list.include? "redditor_create_images.rb"
+    assert file_list.include? "redditor_create_images.rb"
   end
 
   it "generates styles" do
@@ -49,6 +48,10 @@ describe Redditor::Generators::InstallGenerator do
 
   it "generates images" do
     assert_directory "app/assets/images/admin/redditor"
+  end
+
+  it "generates uploader" do
+    assert_file "app/uploaders/redditor_uploader.rb"
   end
 
 end
