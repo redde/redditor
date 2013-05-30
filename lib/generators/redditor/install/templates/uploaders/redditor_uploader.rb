@@ -20,7 +20,7 @@ class RedditorUploader < CarrierWave::Uploader::Base
     # process :resize_to_fit => [119, 119]
     process :resize_and_pad => [119, 119, :transparent, ::Magick::CenterGravity]
   end
-  
+
   version :show do
     process :resize_to_fill => [600, 400]
   end
