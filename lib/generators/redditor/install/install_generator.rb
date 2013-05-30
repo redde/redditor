@@ -48,6 +48,10 @@ module Redditor
         template "uploaders/redditor_uploader.rb", "app/uploaders/redditor_uploader.rb"
       end
 
+      def copy_views
+        directory "views/admin/pages", "app/views/admin/pages"
+      end
+
       private
 
         def migration_exist? name

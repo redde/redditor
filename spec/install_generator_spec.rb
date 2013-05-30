@@ -54,4 +54,8 @@ describe Redditor::Generators::InstallGenerator do
     assert_file "app/uploaders/redditor_uploader.rb"
   end
 
+  it "generates views" do
+    assert_directory "app/views/admin/pages"
+  end
+
 end
