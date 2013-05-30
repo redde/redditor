@@ -1,6 +1,6 @@
 # coding: utf-8
 
-class Admin::Redditor::RedditorController < Admin::ApplicationController
+class Admin::Redditor::RedditorController < Admin::BaseController
   layout false
 
   before_filter :get_page
@@ -8,5 +8,5 @@ class Admin::Redditor::RedditorController < Admin::ApplicationController
   def get_page
     @page = Page.find(params[:page_id])
   end
-  
+
 end
