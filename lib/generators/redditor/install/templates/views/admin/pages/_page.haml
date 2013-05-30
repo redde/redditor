@@ -1,0 +1,15 @@
+= f.fields_for :page do |p|
+
+  - unless @article.new_record?
+    %dl.redditor{data: {"sort-url" => url_for([:sort, :admin, :redditor, p.object])}}
+      - p.object.content_blocks.each do |content_block|
+        = render partial: "admin/pages/content_block", locals: {p: p, page: p.object, content_block: content_block}, :layout => "admin/pages/wrap_dd"
+
+    %div.redditor-add-blocks
+      %p
+        = link_to t('redditor.add.text_block'), [:new, :admin, :redditor, p.object, :text_block], remote: true, class: "new-block add-txt"
+        = link_to t('redditor.add.video_block'), [:new, :admin, :redditor, p.object, :video_block], remote: true, class: "new-block add-video"
+        = link_to t('redditor.add.image_block'), [:new, :admin, :redditor, p.object, :image_block], remote: true, class: "new-block add-photo"
+        = link_to t('redditor.add.slider_block'), [:admin, :redditor, p.object, :slider_blocks], remote: true, class: "new-block add-slider", data: {method: "POST"}
+
+    = content_for :js, javascript_include_tag("admin/redditor")

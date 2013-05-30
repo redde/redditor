@@ -1,0 +1,18 @@
+.tit-form
+  = t 'redditor.title.image'
+  = image_tag 'admin/add_photo_big.png'
+- if f.object.src.present?
+  %div{style: "padding: 5px; border: 1px solid #ccc; background:#fff; margin: 5px 0;"}= image_tag f.object.src, style: "max-width: 100%"
+= redditor_validate f
+.condom{style: "margin:5px 0;"}
+= f.text_field :descr, placeholder: 'Описание', class: 'full-width'
+
+.condom{style: "margin:5px 0; height:1px; background:#ccc;"}
+
+.b-button.js-fileapi-wrapper
+  - if f.object.new_record?
+    .b-button__text Загрузить изображение
+    = f.file_field :src, :class => "b-button__input", data: {"upload-url" => admin_redditor_page_image_blocks_path(@page || @article.page), "content-block-id" => true}
+  - else
+    .b-button__text Заменить изображение
+    = f.file_field :src, :class => "b-button__input", data: {"upload-url" => update_post_admin_redditor_page_image_block_path(@page || @article.page, f.object)}

@@ -1,0 +1,16 @@
+.tit-form
+  = t 'redditor.title.slider'
+  = image_tag 'admin/add_slider_big.png'
+= redditor_validate f
+.condom{style: "margin:5px 0; height:1px; background:#ccc;"}
+
+- unless f.object.new_record?
+  %ul.slider-block-images{data: {"sortable-url" => url_for([:sort, :admin, :redditor, @page || @article.page, f.object, :images])}}
+    = render partial: "admin/pages/slider_block_image", collection: f.object.images, :as => :i
+
+.condom{style: "margin:5px 0; height:1px; background:#ccc;"}
+
+- unless f.object.new_record?
+  .b-button.js-fileapi-wrapper
+    .b-button__text Загрузить изображения
+    = file_field_tag :src, :class => "b-button__input", name: nil, :multiple => true, data: {"upload-url" => url_for([:admin, :redditor, @page || @article.page, f.object, :images])}
