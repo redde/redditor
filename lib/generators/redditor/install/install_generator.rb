@@ -34,6 +34,18 @@ module Redditor
         # migration_template "migrations/image.rb", "db/migrate/redditor_create_images.rb"
       end
 
+      def copy_images
+        directory "assets/images/admin/redditor", "app/assets/images/admin/redditor"
+      end
+
+      def copy_js
+        directory "assets/javascripts/admin", "app/assets/javascripts/admin"
+      end
+
+      def copy_styles
+        directory "assets/stylesheets/admin", "app/assets/stylesheets/admin"
+      end
+
       private
 
         def migration_exist? name
