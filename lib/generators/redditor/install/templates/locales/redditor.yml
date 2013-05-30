@@ -1,0 +1,15 @@
+ru:
+  redditor:
+    add:
+      text_block: Добавить текст
+      video_block: Добавить видео
+      image_block: Добавить фото
+      slider_block: Добавить логотипы
+    remove?: "Вы, действительно, хотите удалить контент-блок?"
+    deleting: Удаление
+    saving: Сохранение
+    title:
+      image: Изображение
+      video: Видео
+      slider: Логотипы
+      text: Текст
