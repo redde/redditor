@@ -1,6 +1,8 @@
 # coding: utf-8
 
 class Redditor::Image < ActiveRecord::Base
+  self.table_name = "redditor_images"
+  
   after_initialize :default_values # чтобы файл загружался, пока через html5 не передаем позицию
 
   attr_accessible :descr, :imageable_id, :imageable_type, :position, :src, :temp_id

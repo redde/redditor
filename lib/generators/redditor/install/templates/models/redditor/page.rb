@@ -1,6 +1,8 @@
 # coding: utf-8
 
 class Redditor::Page < ActiveRecord::Base
+  self.table_name = "redditor_pages"
+
   attr_accessible :pageable_id, :pageable_type, :metakey, :metadesc, :text_blocks_attributes, :video_blocks_attributes, :images_attributes, :slider_blocks_attributes
 
   belongs_to :pageable, :polymorphic => true

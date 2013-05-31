@@ -1,6 +1,8 @@
 # coding: utf-8
 
 class Redditor::TextBlock < ActiveRecord::Base
+  self.table_name = "redditor_text_blocks"
+
   attr_accessible :body, :page_id, :position, :temp_id, :translations_attributes
   attr_accessor :temp_id
 

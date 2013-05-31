@@ -9,6 +9,8 @@ class YoutubeValidator < ActiveModel::EachValidator
 end
 
 class Redditor::VideoBlock < ActiveRecord::Base
+  self.table_name = "redditor_video_blocks"
+
   attr_accessible :height, :page_id, :position, :width, :youtube, :temp_id
   attr_accessor :temp_id
 
