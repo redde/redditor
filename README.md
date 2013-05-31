@@ -18,6 +18,8 @@ Or install it yourself as:
 
 ## Usage
 
+    rails g redditor:install
+
 TODO: Write usage instructions here
 
 ## Contributing
