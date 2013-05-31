@@ -29,7 +29,7 @@ module Redditor
         migration_template "migrations/video_block.rb", "db/migrate/redditor_create_video_blocks.rb" unless migration_exists?("video_blocks")
         migration_template "migrations/text_block.rb", "db/migrate/redditor_create_text_blocks.rb" unless migration_exists?("text_blocks")
         migration_template "migrations/slider_block.rb", "db/migrate/redditor_create_slider_blocks.rb" unless migration_exists?("slider_blocks")
-        migration_template "migrations/image.rb", "db/migrate/redditor_create_images.rb"
+        migration_template "migrations/image.rb", "db/migrate/redditor_create_images.rb" unless migration_exists?("images")
       end
 
       def copy_images
@@ -46,6 +46,10 @@ module Redditor
 
       def copy_uploader
         template "uploaders/redditor_uploader.rb", "app/uploaders/redditor_uploader.rb"
+      end
+
+      def copy_views
+        directory "views/admin/pages", "app/views/admin/pages"
       end
 
       private
