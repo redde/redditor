@@ -16,5 +16,5 @@ class Redditor::VideoBlock < ActiveRecord::Base
 
   validates :youtube, :length => { :is => 11 }, :youtube => true
 
-  belongs_to :page
+  belongs_to :page, :class_name => "Redditor::Page"
 end

@@ -6,6 +6,6 @@ class Redditor::SliderBlock < ActiveRecord::Base
   attr_accessible :page_id, :position, :temp_id
   attr_accessor :temp_id
 
-  belongs_to :page
+  belongs_to :page, :class_name => "Redditor::Page"
   has_many :images, :as => :imageable, :dependent => :destroy
 end
