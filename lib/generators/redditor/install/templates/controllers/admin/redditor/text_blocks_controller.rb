@@ -1,6 +1,6 @@
 #coding: utf-8
 
-class Admin::Redditor::TextBlocksController < Admin::Redditor::RedditorController
+class Admin::Redditor::TextBlocksController < Admin::Redditor::BaseController
 
   def new
     @content_block = @page.text_blocks.build(params[:content_block])
@@ -27,5 +27,5 @@ class Admin::Redditor::TextBlocksController < Admin::Redditor::RedditorControlle
       render :js => "alert('Контент-блок не удален');"
     end
   end
-  
+
 end

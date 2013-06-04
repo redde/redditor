@@ -1,6 +1,6 @@
 # coding: utf-8
 
-class Admin::Redditor::SliderBlocksController < Admin::Redditor::RedditorController
+class Admin::Redditor::SliderBlocksController < Admin::Redditor::BaseController
 
   def new
     @content_block = @page.slider_blocks.build(params[:content_block])
@@ -28,5 +28,5 @@ class Admin::Redditor::SliderBlocksController < Admin::Redditor::RedditorControl
       render :js => "alert('Контент-блок не удален');"
     end
   end
-  
+
 end

@@ -1,6 +1,6 @@
 # coding: utf-8
 
-class Admin::Redditor::ImageBlocksController < Admin::Redditor::RedditorController
+class Admin::Redditor::ImageBlocksController < Admin::Redditor::BaseController
 
   def new
     @content_block = @page.images.build(params[:content_block])
@@ -33,5 +33,5 @@ class Admin::Redditor::ImageBlocksController < Admin::Redditor::RedditorControll
     @content_block.update_attributes(src: params[:file])
     render "admin/pages/wrapper"
   end
-  
+
 end

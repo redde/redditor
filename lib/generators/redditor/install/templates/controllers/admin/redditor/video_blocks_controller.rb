@@ -1,6 +1,6 @@
 #coding: utf-8
 
-class Admin::Redditor::VideoBlocksController < Admin::Redditor::RedditorController
+class Admin::Redditor::VideoBlocksController < Admin::Redditor::BaseController
 
   def new
     @content_block = @page.video_blocks.build(params[:content_block])
@@ -27,5 +27,5 @@ class Admin::Redditor::VideoBlocksController < Admin::Redditor::RedditorControll
       render :js => "alert('Контент-блок не удален');"
     end
   end
-  
+
 end

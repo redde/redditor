@@ -1,6 +1,6 @@
 # coding: utf-8
 
-class Admin::Redditor::PagesController < Admin::ApplicationController
+class Admin::Redditor::PagesController < Admin::Redditor::BaseController
   layout false
 
   def sort
@@ -11,5 +11,5 @@ class Admin::Redditor::PagesController < Admin::ApplicationController
     end
 
     render :nothing => true
-  end  
+  end
 end

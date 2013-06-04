@@ -1,6 +1,6 @@
 # coding: utf-8
 
-class Admin::Redditor::ImagesController < Admin::Redditor::RedditorController
+class Admin::Redditor::ImagesController < Admin::Redditor::BaseController
 
   layout false
 
@@ -29,5 +29,5 @@ class Admin::Redditor::ImagesController < Admin::Redditor::RedditorController
       render :js => 'Ошибка! Изображение не было удалено.'
     end
   end
-  
+
 end
