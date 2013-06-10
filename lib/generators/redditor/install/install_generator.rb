@@ -24,10 +24,6 @@ module Redditor
         template "locales/redditor.yml", "config/locales/redditor.yml"
       end
 
-      def generate_migration
-        migration_template "migrations/create_redditor.rb", "db/migrate/create_redditor.rb" unless migration_exists?("create_redditor")
-      end
-
       def copy_images
         directory "assets/images/admin/redditor", "app/assets/images/admin/redditor"
       end
@@ -48,10 +44,11 @@ module Redditor
         directory "views/admin/pages", "app/views/admin/redditor/pages"
       end
 
-      private
+      def generate_migration
+        migration_template "migrations/create_redditor.rb", "db/migrate/create_redditor.rb" unless migration_exists?("create_redditor")
+      end
 
-        def migration_exist? name
-        end
+      private
 
         def migration_exists?(name)
           Dir.glob("#{File.join(destination_root, migration_path)}/[0-9]*_*.rb").grep(/\d+_redditor_create_#{name}.rb$/).first
