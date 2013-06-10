@@ -15,7 +15,7 @@ class CreateRedditor < ActiveRecord::Migration
       add_index :redditor_images, :imageable_type
       add_index :redditor_images, :imageable_id
 
-      reate_table(:redditor_pages) do |t|
+      create_table(:redditor_pages) do |t|
         t.integer  "pageable_id"
         t.string   "pageable_type"
         t.datetime "created_at",    :null => false
