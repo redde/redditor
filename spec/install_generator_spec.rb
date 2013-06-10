@@ -24,18 +24,14 @@ describe Redditor::Generators::InstallGenerator do
   end
 
   it "generates controllers" do
-    %w{image_blocks images pages redditor slider_blocks text_blocks video_blocks}.each do |ctrl|
+    %w{image_blocks images pages base slider_blocks text_blocks video_blocks}.each do |ctrl|
       assert_file "app/controllers/admin/redditor/#{ctrl}_controller.rb"
     end
   end
 
   it "generates migration" do
     file_list = Dir.glob("#{destination_root}/db/migrate/*.rb").map {|file| file.gsub(destination_root, "").gsub(/\d/, "").gsub("/db/migrate/_", "")}
-    assert file_list.include? "redditor_create_pages.rb"
-    assert file_list.include? "redditor_create_video_blocks.rb"
-    assert file_list.include? "redditor_create_text_blocks.rb"
-    assert file_list.include? "redditor_create_slider_blocks.rb"
-    assert file_list.include? "redditor_create_images.rb"
+    assert file_list.include? "create_redditor.rb"
   end
 
   it "generates styles" do
