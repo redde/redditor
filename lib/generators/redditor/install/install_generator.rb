@@ -45,7 +45,7 @@ module Redditor
       end
 
       def copy_views
-        directory "views/admin/pages", "app/views/admin/pages"
+        directory "views/admin/pages", "app/views/admin/redditor/pages"
       end
 
       private
