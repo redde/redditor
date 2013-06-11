@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "guard-rspec"
   spec.add_development_dependency 'generator_spec'
 
-  spec.add_dependency "rails", ">= 3.2"
-  spec.add_dependency "russian"
-  spec.add_dependency "carrierwave"
+  spec.add_runtime_dependency "rails", ">= 3.2"
+  spec.add_runtime_dependency "russian"
+  spec.add_runtime_dependency "carrierwave"
 end

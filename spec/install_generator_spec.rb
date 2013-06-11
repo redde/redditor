@@ -51,7 +51,7 @@ describe Redditor::Generators::InstallGenerator do
   end
 
   it "generates views" do
-    assert_directory "app/views/admin/pages"
+    assert_directory "app/views/admin/redditor/pages"
   end
 
 end
