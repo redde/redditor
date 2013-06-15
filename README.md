@@ -12,15 +12,15 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install redditor
-
 ## Usage
+Create migrations and copy necessary files:
 
     rails g redditor:install
 
-TODO: Write usage instructions here
+and then:
+
+    rake db:migrate
+
 
 ## Contributing
 
