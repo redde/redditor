@@ -12,38 +12,6 @@ module Redditor
         Time.now.utc.strftime("%Y%m%d%H%M%S")
       end
 
-      def copy_models
-        directory "models/redditor", "app/models/redditor"
-      end
-
-      def copy_controllers
-        directory "controllers/admin/redditor", "app/controllers/admin/redditor"
-      end
-
-      def copy_locale
-        template "locales/redditor.yml", "config/locales/redditor.yml"
-      end
-
-      def copy_images
-        directory "assets/images/admin/redditor", "app/assets/images/admin/redditor"
-      end
-
-      def copy_js
-        directory "assets/javascripts/admin", "app/assets/javascripts/admin"
-      end
-
-      def copy_styles
-        directory "assets/stylesheets/admin", "app/assets/stylesheets/admin"
-      end
-
-      def copy_uploader
-        template "uploaders/redditor_uploader.rb", "app/uploaders/redditor_uploader.rb"
-      end
-
-      def copy_views
-        directory "views/admin/pages", "app/views/admin/redditor/pages"
-      end
-
       def generate_migration
         migration_template "migrations/create_redditor.rb", "db/migrate/create_redditor.rb" unless migration_exists?("create_redditor")
       end

@@ -1,4 +1,5 @@
 # coding: utf-8
+
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'redditor/version'
@@ -23,8 +24,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec-core"
   spec.add_development_dependency "guard-rspec"
   spec.add_development_dependency 'generator_spec'
-
-  spec.add_runtime_dependency "rails"
-  spec.add_runtime_dependency "russian"
-  spec.add_runtime_dependency "carrierwave"
+  spec.add_development_dependency 'sqlite3'
 end
