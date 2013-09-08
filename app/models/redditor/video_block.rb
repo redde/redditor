@@ -13,7 +13,7 @@ module Redditor
   class VideoBlock < ActiveRecord::Base
     self.table_name = "redditor_video_blocks"
 
-    attr_accessible :height, :page_id, :position, :width, :youtube, :temp_id
+    # attr_accessible :height, :page_id, :position, :width, :youtube, :temp_id
     attr_accessor :temp_id
 
     validates :youtube, :length => { :is => 11 }, :youtube => true

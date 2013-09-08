@@ -21,3 +21,4 @@ tmp
 /.ruby-gemset
 
 /spec/fake_app/log
+/spec/fake_app/test.sqlite3
