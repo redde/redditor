@@ -11,6 +11,7 @@ module Redditor
     has_many :video_blocks, :class_name => "Redditor::VideoBlock"
     has_many :images, :as => :imageable
     has_many :slider_blocks, :class_name => "Redditor::SliderBlock"
+    
     accepts_nested_attributes_for :text_blocks, :allow_destroy => true
     accepts_nested_attributes_for :video_blocks, :allow_destroy => true
     accepts_nested_attributes_for :slider_blocks, :allow_destroy => true
