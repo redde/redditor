@@ -15,7 +15,7 @@ module Redditor
 
     belongs_to :imageable, :polymorphic => true
 
-    default_scope order(:position)
+    default_scope -> { order(:position) }
 
     private
       def default_values

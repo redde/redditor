@@ -9,11 +9,8 @@ module Redditor
 
     belongs_to :page, :class_name => "Redditor::Page"
 
-    default_scope order(:position)
+    default_scope -> { order(:position) }
 
     validates :position, :body, :presence => true
-
-    translates :body
-    accepts_nested_attributes_for :translations
   end
 end

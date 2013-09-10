@@ -8,7 +8,7 @@ class CreateRedditor < ActiveRecord::Migration
         t.string   "imageable_type"
         t.integer  "position"
         t.string   "src"
-        t.string   "descr"
+        t.string   "description"
         t.datetime "created_at",     :null => false
         t.datetime "updated_at",     :null => false
       end
