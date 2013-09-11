@@ -14,7 +14,7 @@ module Redditor
     validates :position, :body, :presence => true
     
     def self.model_name
-      ActiveModel::Name.new(self, nil, self.class.name.gsub("Redditor::", ''))
+      ActiveModel::Name.new(self, nil, 'TextBlock')
     end
   end
 end

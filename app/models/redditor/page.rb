@@ -18,7 +18,7 @@ module Redditor
     accepts_nested_attributes_for :images, :allow_destroy => true
 
     def self.model_name
-      ActiveModel::Name.new(self, nil, self.class.name.gsub("Redditor::", ''))
+      ActiveModel::Name.new(self, nil, 'Page')
     end
 
     def content_blocks

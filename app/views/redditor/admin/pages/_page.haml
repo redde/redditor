@@ -11,5 +11,3 @@
         = link_to t('redditor.add.video_block'), redditor.new_admin_page_video_block_path(f.object.page), remote: true, class: "new-block add-video"
         = link_to t('redditor.add.image_block'), redditor.new_admin_page_image_block_path(f.object.page), remote: true, class: "new-block add-photo"
         = link_to t('redditor.add.slider_block'), redditor.new_admin_page_slider_block_path(f.object.page), remote: true, class: "new-block add-slider", data: {method: "POST"}
-
-    = content_for :js, javascript_include_tag("admin/redditor")

@@ -21,7 +21,7 @@ module Redditor
     belongs_to :page, :class_name => "Redditor::Page"
 
     def self.model_name
-      ActiveModel::Name.new(self, nil, self.class.name.gsub("Redditor::", ''))
+      ActiveModel::Name.new(self, nil, 'VideoBlock')
     end
   end
 end

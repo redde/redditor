@@ -11,6 +11,7 @@ class << ActiveRecord::Base
     cattr_accessor :redditor_base_class
     self.redditor_base_class = self
     has_one :page, :as => :pageable, class_name: "Redditor::Page"
+    accepts_nested_attributes_for :page
 
   end
 end

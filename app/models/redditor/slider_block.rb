@@ -11,7 +11,7 @@ module Redditor
     has_many :images, :as => :imageable, :dependent => :destroy
 
     def self.model_name
-      ActiveModel::Name.new(self, nil, self.class.name.gsub("Redditor::", ''))
+      ActiveModel::Name.new(self, nil, 'SliderBlock')
     end
   end
 end

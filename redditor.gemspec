@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rmagick"
   s.add_dependency "coffee-rails"
 
+  s.add_development_dependency 'jquery-rails'
   s.add_development_dependency 'capybara'
   s.add_development_dependency 'poltergeist'
   s.add_development_dependency "haml-rails"

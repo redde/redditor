@@ -18,7 +18,7 @@ module Redditor
     default_scope -> { order(:position) }
 
     def self.model_name
-      ActiveModel::Name.new(self, nil, self.class.name.gsub("Redditor::", ''))
+      ActiveModel::Name.new(self, nil, 'Image')
     end
 
     private

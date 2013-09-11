@@ -4,16 +4,16 @@
 = redditor_validate f
 - if f.object.youtube.present?
   %iframe(width="#{f.object.width || "100%"}" height="#{f.object.height || 315}" src="http://www.youtube.com/embed/#{f.object.youtube}" frameborder="0" allowfullscreen)
-  %br/
+  %br
 .line-form
   = f.label :youtube
-  %br/
+  %br
   = f.text_field :youtube
 .line-form
   = f.label :width
-  %br/
+  %br
   = f.text_field :width, :size => 10
 .line-form
   = f.label :height
-  %br/
+  %br
   = f.text_field :height, :size => 10
