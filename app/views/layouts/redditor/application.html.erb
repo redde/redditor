@@ -4,6 +4,7 @@
   <title>Redditor</title>
   <%= stylesheet_link_tag    "redditor/application", media: "all" %>
   <%= javascript_include_tag "redditor/application" %>
+  <%= yield :js %>
   <%= csrf_meta_tags %>
 </head>
 <body>

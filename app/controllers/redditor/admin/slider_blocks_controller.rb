@@ -1,23 +1,23 @@
 # coding: utf-8
 
-class Admin::Redditor::SliderBlocksController < Admin::Redditor::BaseController
+class Redditor::Admin::SliderBlocksController < Redditor::Admin::BaseController
 
   def new
     @content_block = @page.slider_blocks.build(params[:content_block])
-    render "admin/pages/new"
+    render "redditor/admin/pages/new"
   end
 
   def update
     @content_block = @page.slider_blocks.find(params[:id])
     @content_block.update_attributes(params[:content_block])
-    render "admin/pages/wrapper"
+    render "redditor/admin/pages/wrapper"
   end
 
   def create
     temp_last_postion = @page.try(:content_blocks).try(:last).try(:position).to_i + 1
     @content_block = @page.slider_blocks.build(params[:content_block])
     @content_block.update_attributes(position: temp_last_postion)
-    render "admin/pages/new"
+    render "redditor/admin/pages/new"
   end
 
   def destroy

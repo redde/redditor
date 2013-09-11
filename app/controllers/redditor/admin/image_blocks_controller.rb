@@ -1,22 +1,22 @@
 # coding: utf-8
 
-class Admin::Redditor::ImageBlocksController < Admin::Redditor::BaseController
+class Redditor::Admin::ImageBlocksController < Redditor::Admin::BaseController
 
   def new
     @content_block = @page.images.build(params[:content_block])
-    render "admin/pages/new"
+    render "redditor/admin/pages/new"
   end
 
   def update
     @content_block = @page.images.find(params[:id])
     @content_block.update_attributes(params[:content_block])
-    render "admin/pages/wrapper"
+    render "redditor/admin/pages/wrapper"
   end
 
   def create
     @content_block = @page.images.build(params[:content_block])
     @content_block.update_attributes(src: params[:file])
-    render "admin/pages/wrapper"
+    render "redditor/admin/pages/wrapper"
   end
 
   def destroy
@@ -31,7 +31,7 @@ class Admin::Redditor::ImageBlocksController < Admin::Redditor::BaseController
   def update_post
     @content_block = @page.images.find(params[:id])
     @content_block.update_attributes(src: params[:file])
-    render "admin/pages/wrapper"
+    render "redditor/admin/pages/wrapper"
   end
 
 end

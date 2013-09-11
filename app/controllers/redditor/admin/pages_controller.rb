@@ -1,6 +1,6 @@
 # coding: utf-8
 
-class Admin::Redditor::PagesController < Admin::Redditor::BaseController
+class Redditor::Admin::PagesController < Redditor::Admin::BaseController
   layout false
 
   def sort

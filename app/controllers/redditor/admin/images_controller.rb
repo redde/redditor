@@ -1,6 +1,6 @@
 # coding: utf-8
 
-class Admin::Redditor::ImagesController < Admin::Redditor::BaseController
+class Redditor::Admin::ImagesController < Redditor::Admin::BaseController
 
   layout false
 
@@ -17,7 +17,7 @@ class Admin::Redditor::ImagesController < Admin::Redditor::BaseController
     @slider_block = SliderBlock.find(params[:slider_block_id])
     @image = @slider_block.images.build(src: params[:file])
     if @image.save
-      render "admin/pages/slider_block_image"
+      render "redditor/admin/pages/slider_block_image"
     end
   end
 
