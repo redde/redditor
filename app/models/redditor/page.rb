@@ -17,6 +17,10 @@ module Redditor
     accepts_nested_attributes_for :slider_blocks, :allow_destroy => true
     accepts_nested_attributes_for :images, :allow_destroy => true
 
+    def self.model_name
+      ActiveModel::Name.new(self, nil, self.class.name.gsub("Redditor::", ''))
+    end
+
     def content_blocks
       (self.text_blocks + self.video_blocks + self.images + self.slider_blocks).sort {|x, y| x.position <=> y.position}
     end

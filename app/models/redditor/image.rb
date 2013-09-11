@@ -17,6 +17,10 @@ module Redditor
 
     default_scope -> { order(:position) }
 
+    def self.model_name
+      ActiveModel::Name.new(self, nil, self.class.name.gsub("Redditor::", ''))
+    end
+
     private
       def default_values
         self.position ||= 1000

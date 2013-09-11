@@ -9,5 +9,9 @@ module Redditor
 
     belongs_to :page, :class_name => "Redditor::Page"
     has_many :images, :as => :imageable, :dependent => :destroy
+
+    def self.model_name
+      ActiveModel::Name.new(self, nil, self.class.name.gsub("Redditor::", ''))
+    end
   end
 end

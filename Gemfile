@@ -5,6 +5,7 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'haml-rails'
 gem 'haml'
+gem 'coffee-rails'
 # Declare your gem's dependencies in redditor.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
 # development dependencies will be added by default to the :development group.

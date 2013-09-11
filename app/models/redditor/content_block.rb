@@ -16,5 +16,9 @@ module Redditor
       type.to_s.sub("s_attributes", "").camelcase.constantize.where(page_id: page_id, position: position).any?
     end
 
+    # def self.model_name
+    #   ActiveModel::Name.new(self, nil, self.class.name.gsub("Redditor::", ''))
+    # end
+
   end
 end

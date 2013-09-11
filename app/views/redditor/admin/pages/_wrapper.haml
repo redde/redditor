@@ -1,3 +1,3 @@
 = fields_for :article, @page.pageable do |a|
   = a.fields_for :page do |p|
-    = render "admin/pages/content_block", {p: p, content_block: content_block, page: @page}
+    = render "redditor/admin/pages/content_block", {p: p, content_block: content_block, page: @page}

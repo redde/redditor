@@ -19,5 +19,9 @@ module Redditor
     validates :youtube, :length => { :is => 11 }, :youtube => true
 
     belongs_to :page, :class_name => "Redditor::Page"
+
+    def self.model_name
+      ActiveModel::Name.new(self, nil, self.class.name.gsub("Redditor::", ''))
+    end
   end
 end
