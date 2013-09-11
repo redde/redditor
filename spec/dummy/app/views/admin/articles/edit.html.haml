@@ -1,0 +1,12 @@
+%h1 Edit article
+
+= form_for [:admin, @article] do |f|
+  %div
+    = f.label :title
+    = f.text_field :title
+
+  %div
+    = render "redditor/admin/pages/page", {f: f}
+    = fileapi
+
+  = f.submit "Submit"
