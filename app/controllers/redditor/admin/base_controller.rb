@@ -6,7 +6,7 @@ class Redditor::Admin::BaseController < ActionController::Base
   before_filter :get_page
 
   def get_page
-    @page = Redditor::Page.find(params[:page_id])
+    @page = Redditor::Page.find(params[:page_id] || params[:id])
   end
 
 end
