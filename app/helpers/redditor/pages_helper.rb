@@ -1,3 +1,5 @@
+# coding: utf-8
+
 module Redditor
   module PagesHelper
     def button_tag_add_fields(name, f, association)
