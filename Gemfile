@@ -7,6 +7,8 @@ gem 'haml-rails'
 gem 'haml'
 gem 'coffee-rails'
 gem 'jquery-rails'
+gem 'sass-rails'
+gem 'compass-rails', github: 'milgner/compass-rails', ref: '1749c06f15dc4b058427e7969810457213647fb8'
 # Declare your gem's dependencies in redditor.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
 # development dependencies will be added by default to the :development group.

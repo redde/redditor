@@ -3,8 +3,8 @@ module Redditor
   module FileapiHelper
 
     def fileapi url=nil
-      html = stylesheet_link_tag "fileapi/fileapi"
-      html += javascript_include_tag "fileapi/mailru"
+      html = stylesheet_link_tag "redditor/fileapi/fileapi"
+      html += javascript_include_tag "redditor/fileapi/mailru"
       if url.present?
         html += javascript_tag do 
           %Q{FU.config.uploadUrl = "#{url}"}.html_safe
