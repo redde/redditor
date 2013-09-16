@@ -12,6 +12,7 @@ describe "Text block" do
     find_link(I18n.t("redditor.add.text_block")).click
     page.find("textarea").set("test text block")
     find_button("Submit").click
-    expect(page).to have_content "test text block"
+    save_page
+    expect(page.find("textarea").value).to eq "test text block"
   end
 end
