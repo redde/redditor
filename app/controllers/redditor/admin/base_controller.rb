@@ -5,8 +5,14 @@ class Redditor::Admin::BaseController < ActionController::Base
 
   before_filter :get_page
 
-  def get_page
-    @page = Redditor::Page.find(params[:page_id] || params[:id])
-  end
+  private
+
+    def get_page
+      @page = Redditor::Page.find(params[:page_id] || params[:id])
+    end
+
+    def content_block_params
+      params.require(:content_block).permit!
+    end
 
 end

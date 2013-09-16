@@ -28,10 +28,4 @@ class Redditor::Admin::TextBlocksController < Redditor::Admin::BaseController
     end
   end
 
-  private
-
-    def text_block_params
-      params.require(:content_block).permit!
-    end
-
 end

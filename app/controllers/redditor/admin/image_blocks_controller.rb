@@ -3,18 +3,18 @@
 class Redditor::Admin::ImageBlocksController < Redditor::Admin::BaseController
 
   def new
-    @content_block = @page.images.build(params[:content_block])
+    @content_block = @page.images.build(content_block_params)
     render "redditor/admin/pages/new"
   end
 
   def update
     @content_block = @page.images.find(params[:id])
-    @content_block.update_attributes(params[:content_block])
+    @content_block.update_attributes(content_block_params)
     render "redditor/admin/pages/wrapper"
   end
 
   def create
-    @content_block = @page.images.build(params[:content_block])
+    @content_block = @page.images.build(content_block_params)
     @content_block.update_attributes(src: params[:file])
     render "redditor/admin/pages/wrapper"
   end
