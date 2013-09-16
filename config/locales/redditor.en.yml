@@ -1,0 +1,20 @@
+en:
+  redditor:
+    add:
+      text_block: Add text
+      video_block: Add video
+      image_block: Add photo
+      slider_block: Add slider
+      upload_image: Upload image
+      upload_images: Upload images
+      change_image: Change image
+    delete_image: "Delete image?"
+    description: "Description"
+    remove?: "Really delete content block?"
+    deleting: Deleting...
+    saving: Saving...
+    title:
+      image: Image
+      video: Video
+      slider: Slider
+      text: Text

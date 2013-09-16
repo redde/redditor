@@ -5,11 +5,16 @@ ru:
       video_block: Добавить видео
       image_block: Добавить фото
       slider_block: Добавить логотипы
+      upload_image: Загрузить изображение
+      upload_images: Загрузить изображения
+      change_image: "Заменить изображение"
+    delete_image: "Удалить изображение?"
+    description: "Описание"
     remove?: "Вы, действительно, хотите удалить контент-блок?"
-    deleting: Удаление
-    saving: Сохранение
+    deleting: Удаление...
+    saving: Сохранение...
     title:
       image: Изображение
       video: Видео
-      slider: Логотипы
+      slider: Слайдеры
       text: Текст

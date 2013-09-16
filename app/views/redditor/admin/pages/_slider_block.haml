@@ -12,5 +12,5 @@
 
 - unless f.object.new_record?
   .b-button.js-fileapi-wrapper
-    .b-button__text Загрузить изображения
+    .b-button__text= t("redditor.add.upload_images")
     = file_field_tag :src, :class => "b-button__input", name: nil, :multiple => true, data: {"upload-url" => url_for([redditor, :admin, @page || @article.page, f.object, :images])}
