@@ -19,6 +19,9 @@ describe "Text block" do
     pending
   end
 
+  it "Deletes text block", type: :feature, js: true do
+  end
+
   it "Saves text block to article on save button", type: :feature, js: true do
     visit "/admin/articles/#{article.id}/edit"
     find_link(I18n.t("redditor.add.text_block")).click
