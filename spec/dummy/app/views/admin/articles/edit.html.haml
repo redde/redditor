@@ -1,6 +1,9 @@
 %h1 Edit article
 
 = form_for [:admin, @article] do |f|
+  %ul.errors
+    - @article.errors.full_messages do |error|
+      %li= error
   %div
     = f.label :title
     = f.text_field :title
