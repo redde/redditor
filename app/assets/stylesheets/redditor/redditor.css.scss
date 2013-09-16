@@ -6,7 +6,7 @@ dl.redditor {
     border: 1px solid #e8e8e8;
     .handle {
       width:20px; height: 20px; float: left;
-      background: image-url('admin/redditor/move_handler.png') center no-repeat;
+      background: image-url('redditor/move_handler.png') center no-repeat;
       cursor: move;
     }
   }
@@ -70,7 +70,7 @@ div.redditor-add-blocks {
 .del-item {
   text-decoration: none; position: absolute; right: 1px; bottom: 1px;
   width: 22px; height: 22px;
-  background: #eee image-url('admin/redditor/trash.png') center no-repeat;
+  background: #eee image-url('redditor/trash.png') center no-repeat;
   border-radius: 15px; border: 1px solid #aaa;
 }
 .full-width {
@@ -81,22 +81,22 @@ div.redditor-add-blocks {
   border-radius: 3px; border: 1px solid #ccc; font-size: 11px; margin-right: 3px;
 }
 .add-txt {
-  @include background(image-url('admin/redditor/add_txt.png') 3px center no-repeat, linear-gradient(top, #fff 0%, #f5f5f5 49%, #ececec 50%, #eee 100%));
+  @include background(image-url('redditor/add_txt.png') 3px center no-repeat, linear-gradient(top, #fff 0%, #f5f5f5 49%, #ececec 50%, #eee 100%));
 }
 .add-video {
-  @include background(image-url('admin/redditor/add_video.png') 3px center no-repeat, linear-gradient(top, #fff 0%, #f5f5f5 49%, #ececec 50%, #eee 100%));
+  @include background(image-url('redditor/add_video.png') 3px center no-repeat, linear-gradient(top, #fff 0%, #f5f5f5 49%, #ececec 50%, #eee 100%));
 }
 .add-photo {
-  @include background(image-url('admin/redditor/add_photo.png') 3px center no-repeat, linear-gradient(top, #fff 0%, #f5f5f5 49%, #ececec 50%, #eee 100%));
+  @include background(image-url('redditor/add_photo.png') 3px center no-repeat, linear-gradient(top, #fff 0%, #f5f5f5 49%, #ececec 50%, #eee 100%));
 }
 .add-slider {
-  @include background(image-url('admin/redditor/add_slider.png') 3px center no-repeat, linear-gradient(top, #fff 0%, #f5f5f5 49%, #ececec 50%, #eee 100%));
+  @include background(image-url('redditor/add_slider.png') 3px center no-repeat, linear-gradient(top, #fff 0%, #f5f5f5 49%, #ececec 50%, #eee 100%));
 }
 a.redactor_btn_format {
-  background: image-url('admin/redditor/no_format_text.png') center no-repeat !important;
+  background: image-url('redditor/no_format_text.png') center no-repeat !important;
 }
 a.redactor_btn_divide {
-  background: image-url('admin/redditor/destroy_block_text.png') center no-repeat !important;
+  background: image-url('redditor/destroy_block_text.png') center no-repeat !important;
 }
 // dl.redditor dd:before {
 //   content: "class: " attr(class); display: block; padding: 2px; background: #fcc;
