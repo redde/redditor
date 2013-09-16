@@ -11,6 +11,6 @@
 
 = p.fields_for content_block.class.name.underscore.sub('redditor/', '').pluralize.to_sym, content_block do |f|
   %div.form-name{data: {"object-name" => f.object.temp_id.present? ? f.object_name.sub!(/\[\d*\]/, "[#{f.object.temp_id}]") : f.object_name}, id: "#{content_block.class.name.underscore}_#{content_block.id.nil? ? f.object.temp_id : content_block.id}"}
-    = f.text_field :position
+    = f.text_field :position, class: 'js-position', hidden: true
     = render :partial => "redditor/admin/pages/#{content_block.class.name.underscore.sub('redditor/', '')}", locals: {f: f}
     = f.hidden_field :temp_id
