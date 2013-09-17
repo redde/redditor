@@ -2,7 +2,7 @@
 
 = form_for [:admin, @article] do |f|
   %ul.errors
-    - @article.errors.full_messages do |error|
+    - @article.errors.full_messages.each do |error|
       %li= error
   %div
     = f.label :title

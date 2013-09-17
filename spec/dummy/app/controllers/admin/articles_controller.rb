@@ -11,7 +11,7 @@ class Admin::ArticlesController < Admin::BaseController
     @article = Article.find(params[:id])
     puts article_params
     @article.update_attributes(article_params)
-    redirect_to [:edit, :admin, @article]
+    render "edit"
   end
 
   def destroy
