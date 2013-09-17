@@ -1,6 +1,6 @@
 .tit-form
   = t 'redditor.title.video'
-  = image_tag 'admin/add_video_big.png'
+  = image_tag 'redditor/add_video_big.png'
 = redditor_validate f
 - if f.object.youtube.present?
   %iframe(width="#{f.object.width || "100%"}" height="#{f.object.height || 315}" src="http://www.youtube.com/embed/#{f.object.youtube}" frameborder="0" allowfullscreen)
