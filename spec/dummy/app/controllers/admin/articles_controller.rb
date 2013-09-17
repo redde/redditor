@@ -9,7 +9,6 @@ class Admin::ArticlesController < Admin::BaseController
 
   def update
     @article = Article.find(params[:id])
-    puts article_params
     @article.update_attributes(article_params)
     render "edit"
   end
