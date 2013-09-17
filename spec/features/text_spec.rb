@@ -7,9 +7,10 @@ describe "Text block" do
 
   before(:each) do
     clean_database
-    visit "/admin/articles/#{article.id}/edit"
+    visit_article
   end
 
+  def visit_article() visit "/admin/articles/#{article.id}/edit"; end
   def add_block() find_link(I18n.t("redditor.add.text_block")).click; end
   def submit() find_button("Submit").click; end
   def save_block() find_link("✔").click; end
@@ -30,9 +31,9 @@ describe "Text block" do
 
   it "Deletes text block", type: :feature, js: true do
     article.page.text_blocks.build(body: "123", position: 1).save
-    visit "/admin/articles/#{article.id}/edit"
+    visit_article
     delete_block
-    visit "/admin/articles/#{article.id}/edit"
+    visit_article
     expect(page).not_to have_content "123"
   end
 
@@ -40,7 +41,7 @@ describe "Text block" do
     add_block
     page.find("textarea").set("test text block")
     save_block
-    visit "/admin/articles/#{article.id}/edit"
+    visit_article
     expect(page.find("textarea").value).to eq "test text block"
   end
 end
