@@ -34,7 +34,12 @@ describe "Text block" do
     visit_article
     delete_block
     visit_article
-    expect(page).not_to have_content "123"
+    text_value = begin
+      page.find("textarea").value
+    rescue
+      nil
+    end
+    expect(text_value).to eq nil
   end
 
   it "Saves text block to article on save button", type: :feature, js: true do
