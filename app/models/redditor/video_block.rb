@@ -2,7 +2,7 @@
 
 class YoutubeValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
-    unless value =~ /[a-zA-Z0-9_-]{11}/
+    if value =~ /[^A-z0-9_-]/
       record.errors[attribute] << (options[:message] || "- используются недопустимые символы")
     end
   end
