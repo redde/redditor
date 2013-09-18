@@ -1,6 +1,6 @@
 .tit-form
   = t 'redditor.title.image'
-  = image_tag 'admin/add_photo_big.png'
+  = image_tag 'redditor/add_photo_big.png'
 - if f.object.src.present?
   %div{style: "padding: 5px; border: 1px solid #ccc; background:#fff; margin: 5px 0;"}= image_tag f.object.src, style: "max-width: 100%"
 = redditor_validate f
@@ -12,7 +12,7 @@
 .b-button.js-fileapi-wrapper
   - if f.object.new_record?
     .b-button__text= t("redditor.add.upload_image")
-    = f.file_field :src, :class => "b-button__input", data: {"upload-url" => admin_redditor_page_image_blocks_path(@page || @article.page), "content-block-id" => true}
+    = f.file_field :src, :class => "b-button__input", data: {"upload-url" => redditor.admin_page_image_blocks_path(@page || @article.page), "content-block-id" => true}
   - else
     .b-button__text= t("redditor.add.change_image")
-    = f.file_field :src, :class => "b-button__input", data: {"upload-url" => update_post_admin_redditor_page_image_block_path(@page || @article.page, f.object)}
+    = f.file_field :src, :class => "b-button__input", data: {"upload-url" => redditor.update_post_admin_redditor_page_image_block_path(@page || @article.page, f.object)}
