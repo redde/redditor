@@ -26,7 +26,7 @@ describe "Text block" do
   it "Shows validation error if text block content is empty", type: :feature, js: true do
     add_block
     submit
-    expect(page).to have_content "can't be blank"
+    expect(page.find(".errors")).to have_content "can't be blank"
   end
 
   it "Deletes text block", type: :feature, js: true do

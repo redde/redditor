@@ -26,7 +26,7 @@ describe "Video block" do
   it "Shows validation error if youtube block url is empty or invalid", type: :feature, js: true do
     add_block
     submit
-    expect(page).to have_content "is the wrong length"
+    expect(page.find(".errors")).to have_content "is the wrong length"
   end
 
   it "Deletes video block", type: :feature, js: true do
