@@ -15,4 +15,4 @@
     = f.file_field :src, :class => "b-button__input", data: {"upload-url" => redditor.admin_page_image_blocks_path(@page || @article.page), "content-block-id" => true}
   - else
     .b-button__text= t("redditor.add.change_image")
-    = f.file_field :src, :class => "b-button__input", data: {"upload-url" => redditor.update_post_admin_redditor_page_image_block_path(@page || @article.page, f.object)}
+    = f.file_field :src, :class => "b-button__input", data: {"upload-url" => redditor.update_post_admin_page_image_block_path(@page || @article.page, f.object)}
