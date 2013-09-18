@@ -1,6 +1,6 @@
 %h1 Edit article
 
-= form_for [:admin, @article] do |f|
+= form_for [:admin, @article], html: {multipart: true} do |f|
   %ul.errors
     - @article.errors.full_messages.each do |error|
       %li= error
