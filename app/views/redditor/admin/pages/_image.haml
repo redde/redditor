@@ -12,7 +12,7 @@
 .b-button.js-fileapi-wrapper
   - if f.object.new_record?
     .b-button__text= t("redditor.add.upload_image")
-    = f.file_field :src, :class => "b-button__input", data: {"upload-url" => redditor.admin_page_image_blocks_path(f.object.imageable_id), "content-block-id" => true}
+    = f.file_field :src, :class => "b-button__input js-fileapi", data: {"upload-url" => redditor.admin_page_image_blocks_path(f.object.imageable_id), "content-block-id" => true}
   - else
     .b-button__text= t("redditor.add.change_image")
-    = f.file_field :src, :class => "b-button__input", data: {"upload-url" => redditor.update_post_admin_page_image_block_path(f.object.imageable_id, f.object)}
+    = f.file_field :src, :class => "b-button__input js-fileapi", data: {"upload-url" => redditor.update_post_admin_page_image_block_path(f.object.imageable_id, f.object)}

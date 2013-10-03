@@ -1,0 +1,47 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require redditor/redditor
+ */
+
+@import "compass";
+
+ html {
+  font: 12px "Lucida Grande", "Lucida Sans Unicode", helvetica, arial, verdana, sans-serif;
+ }
+
+ form.edit_article {
+  margin:0 10px;
+ }
+
+ .text-block-input {
+  width: 100%;
+  @include box-sizing(border-box);
+}
+
+input[type=submit] {
+  font-size: 2em;
+  padding: 0.25em 1.5em;
+  display: inline-block;
+  background:#ccc;
+  cursor: pointer;
+  @include background(linear-gradient(#fff, #ccc));
+  border-radius: 3px;
+  box-shadow: 1px 1px 2px #ccc;
+  border: 1px solid #999;
+  text-transform: lowercase;
+  outline: none;
+  &:hover {
+    @include background(linear-gradient(rgba(#fff, 0.8), rgba(#ccc, 0.8)));
+  }
+  &:active {
+    @include transform(translateY(1px));
+  }
+}

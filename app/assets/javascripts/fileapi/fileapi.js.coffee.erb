@@ -1,0 +1,12 @@
+//= require_self
+//= require fileapi/FileAPI.min
+//= require fileapi/FileAPI.id3.js
+//= require fileapi/FileAPI.exif.js
+//= require fileapi/tmpl
+//= require fileapi/uploader
+
+window.FileAPI = 
+  debug: false
+  pingUrl: false
+  flashUrl: '<%= asset_path 'fileapi/FileAPI.flash.swf' %>'
+  flashImageUrl: '<%= asset_path 'fileapi/FileAPI.flash.image.swf' %>'
