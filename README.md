@@ -37,9 +37,7 @@ Add this to model
 
 In admin new/edit view if that model add
 
-    %div
-      = render "redditor/admin/pages/page", {f: f}
-      = fileapi
+    %div= render "redditor/admin/pages/page", {f: f}
 
 Add engine to `routes.rb`
 
