@@ -12,3 +12,4 @@
 //
 //= require jquery-ui.min.js
 //= require redditor/redditor
+//= require fileapi/fileapi

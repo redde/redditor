@@ -13,5 +13,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require redditor/application
-//= require fileapi/fileapi
 //= require_tree .
