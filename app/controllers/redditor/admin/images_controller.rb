@@ -6,7 +6,7 @@ class Redditor::Admin::ImagesController < Redditor::Admin::BaseController
 
   def sort
     params[:slider_block_image].each_with_index do |id, idx|
-      p = Image.find(id)
+      p = Redditor::Image.find(id)
       p.position = idx
       p.save
     end
@@ -14,7 +14,7 @@ class Redditor::Admin::ImagesController < Redditor::Admin::BaseController
   end
 
   def create
-    @slider_block = SliderBlock.find(params[:slider_block_id])
+    @slider_block = @page.slider_blocks.find(params[:slider_block_id])
     @image = @slider_block.images.build(src: params[:file])
     if @image.save
       render "redditor/admin/pages/slider_block_image"
@@ -22,7 +22,7 @@ class Redditor::Admin::ImagesController < Redditor::Admin::BaseController
   end
 
   def destroy
-    @image = Image.find(params[:id])
+    @image = Redditor::Image.find(params[:id])
     if @image.destroy
       render :js => "$('#slider_block_image_#{@image.id}').remove()"
     else
