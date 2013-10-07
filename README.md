@@ -14,3 +14,33 @@ This project rocks and uses MIT-LICENSE.
 Вероятно, на multipart можно забить, если все загрузки будут происходить через fileapi
 todo: проверить вариант загрузки через fileapi c последующим сохранением всей формы через submit.
 Как вариат добавлять атрибут с помощью js
+
+Add gem to your Gemfile
+
+    gem 'redditor'
+
+and
+
+    bundle
+
+Then generate migrations
+
+    bundle exec rake redditor:install:migrations
+
+And migrate the database
+
+    bundle exec rake db:migrate
+
+Add this to model
+
+    has_redditor
+
+In admin new/edit view if that model add
+
+    %div
+      = render "redditor/admin/pages/page", {f: f}
+      = fileapi
+
+Add engine to `routes.rb`
+
+    mount Redditor::Engine => "/redditor"
