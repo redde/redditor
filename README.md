@@ -44,3 +44,7 @@ In admin new/edit view if that model add
 Add engine to `routes.rb`
 
     mount Redditor::Engine => "/redditor"
+
+Add this line to edit action in controller (change @article to you model)
+
+    @article.build_page.save unless @article.page
