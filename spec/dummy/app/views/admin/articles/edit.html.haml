@@ -8,8 +8,5 @@
     = f.label :title
     = f.text_field :title
 
-  %div
-    = render "redditor/admin/pages/page", {f: f}
-    = fileapi
-
+  %div= render "redditor/admin/pages/page", {f: f}
   = f.submit "Submit"
