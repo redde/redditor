@@ -5,9 +5,9 @@
       - p.object.content_blocks.each do |content_block|
         = render partial: "redditor/admin/pages/content_block", locals: {p: p, page: p.object, content_block: content_block}, :layout => "redditor/admin/pages/wrap_dd"
 
-    %div.redditor-add-blocks
+    %div.redditor__add-blocks
       %p
-        = link_to t('redditor.add.text_block'), redditor.new_admin_page_text_block_path(f.object.page), remote: true, class: "new-block add-txt"
-        = link_to t('redditor.add.video_block'), redditor.new_admin_page_video_block_path(f.object.page), remote: true, class: "new-block add-video"
-        = link_to t('redditor.add.image_block'), redditor.new_admin_page_image_block_path(f.object.page), remote: true, class: "new-block add-photo"
-        = link_to t('redditor.add.slider_block'), redditor.admin_page_slider_blocks_path(f.object.page), remote: true, method: 'POST', class: "new-block add-slider"
+        = link_to t('redditor.add.text_block'), redditor.new_admin_page_text_block_path(f.object.page), remote: true, class: "redditor__add redditor__add_txt"
+        = link_to t('redditor.add.video_block'), redditor.new_admin_page_video_block_path(f.object.page), remote: true, class: "redditor__add redditor__add_video"
+        = link_to t('redditor.add.image_block'), redditor.new_admin_page_image_block_path(f.object.page), remote: true, class: "redditor__add redditor__add_photo"
+        = link_to t('redditor.add.slider_block'), redditor.admin_page_slider_blocks_path(f.object.page), remote: true, method: 'POST', class: "redditor__add redditor__add_slider"

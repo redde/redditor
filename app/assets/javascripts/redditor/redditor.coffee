@@ -99,7 +99,7 @@ $ ->
 
   $("ul.slider-block-images").sortable REDDE.redditor.sliderBlockImagesSortableParams
 
-  $('div.redditor-add-blocks').on "ajax:beforeSend", "a.new-block", (event, xhr, status) ->
+  $('div.redditor__add-blocks').on "ajax:beforeSend", "a.redditor__add", (event, xhr, status) ->
     status.url += "?" + $.param(content_block: {temp_id: new Date().getTime()}) # generate uniq id
 
 #! jquery-serializeForm - Make an object out of form elements - v1.1.1 - 2013-01-21
