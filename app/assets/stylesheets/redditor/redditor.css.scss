@@ -39,8 +39,8 @@ div.redditor-add-blocks {
   }
 }
 
-.control-data {float: right;}
-.delete-data, .update-data {
+.redditor__control {float: right;}
+.redditor__delete, .redditor__update {
   text-decoration: none;
   display: inline-block;
   text-align: center; min-width: 10px; padding: 0 5px;
@@ -49,8 +49,14 @@ div.redditor-add-blocks {
   background: #F8F8F8;
 }
 
-.delete-data { color: #A72522;}
-.update-data { color: green;}
+.redditor__delete {
+  color: #A72522;
+  &:before {content: '✘'}
+}
+.redditor__update { 
+  color: green;
+  &:before {content: '✔'}
+}
 
 .form-name {
   margin-top: 25px;

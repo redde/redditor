@@ -9,7 +9,7 @@ module Redditor
         content_tag(:dd, :id => "#{association.to_s.singularize}_#{id}") do
           tag(:div, class: "handle") +
           link_to("Удалить", "javascript:void(0);", onclick: "if (confirm('dfasdsa')) $(this).closest('dd').remove();") + "\s" +
-          link_to("Обновить", [:admin, @article.page, association], method: "post", class: "update-data", remote: true, data: {disable_with: "Обновляется"}) + "\s" +
+          link_to("Обновить", [:admin, @article.page, association], method: "post", class: "redditor__update", remote: true, data: {disable_with: "Обновляется"}) + "\s" +
           render("admin/pages/" + association.to_s.singularize, f: builder)
         end
       end

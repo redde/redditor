@@ -92,7 +92,7 @@ $ ->
       $(@).removeClass("now-sortable")
       return
 
-  .on "ajax:beforeSend", "a.update-data", (event, xhr, status) ->
+  .on "ajax:beforeSend", "a.redditor__update", (event, xhr, status) ->
     box = $(@).closest "dd"
     params = REDDE.redditor.parameterizationForm(box)
     status.url += "?" + $.param(params)

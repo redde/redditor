@@ -11,8 +11,8 @@ en:
     delete_image: "Delete image?"
     description: "Description"
     remove?: "Really delete content block?"
-    deleting: Deleting...
-    saving: Saving...
+    deleting: ' Deleting...'
+    saving: ' Saving...'
     title:
       image: Image
       video: Video
