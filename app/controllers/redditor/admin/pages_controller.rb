@@ -6,7 +6,7 @@ class Redditor::Admin::PagesController < Redditor::Admin::BaseController
   def sort
     params[:sort].each do |k, v|
       v.each do |klass, info|
-        klass.camelcase.constantize.find_by_id(info[:index]).update_attributes(position: info[:position]) rescue nil
+        "Redditor::#{klass.camelcase}".constantize.find_by_id(info[:index]).update_attributes(position: info[:position]) rescue nil
       end
     end
 

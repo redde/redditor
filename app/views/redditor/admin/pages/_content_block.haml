@@ -2,15 +2,36 @@
 
 - if content_block.new_record?
   .control-data
-    = link_to "✘", "javascript:void(0);", onclick: "if (confirm('#{t "redditor.remove?"}')) $(this).closest('dd').remove();", class: "delete-data"
-    = link_to "✔", [redditor, :admin, p.object, content_block], method: "post", class: "update-data", remote: true, data: {:disable_with => "✔ #{t "redditor.saving"}"}
+    = link_to "✘", 
+      "javascript:void(0);", 
+      class: "delete-data",
+      onclick: "if (confirm('#{t "redditor.remove?"}')) $(this).closest('dd').remove();"
+    
+    = link_to "✔", 
+      [redditor, :admin, p.object, content_block], 
+      method: "post", 
+      class: "update-data", 
+      remote: true, 
+      data: {:disable_with => "✔ #{t "redditor.saving"}"}
+
 - else
   .control-data
-    = link_to "✘", [redditor, :admin, p.object, content_block], :method => :delete, remote: true, data: {confirm: "Вы, действительно, хотите удалить контент-блок?", disable_with: "✘ #{t "redditor.deleting"}"}, class: "delete-data"
-    = link_to "✔", [redditor, :admin, p.object, content_block], method: "put", class: "update-data", remote: true, data: {disable_with: "✔ #{t "redditor.saving"}"}
+    = link_to "✘", 
+      [redditor, :admin, p.object, content_block], 
+      class: "delete-data",
+      :method => :delete, 
+      remote: true, 
+      data: {confirm: "Вы, действительно, хотите удалить контент-блок?", disable_with: "✘ #{t "redditor.deleting"}"}
+    
+    = link_to "✔", 
+      [redditor, :admin, p.object, content_block], 
+      class: "update-data", 
+      remote: true,
+      method: "put",
+      data: {disable_with: "✔ #{t "redditor.saving"}"}
 
 = p.fields_for content_block.class.name.underscore.sub('redditor/', '').pluralize.to_sym, content_block do |f|
   %div.form-name{data: {"object-name" => f.object.temp_id.present? ? f.object_name.sub!(/\[\d*\]/, "[#{f.object.temp_id}]") : f.object_name}, id: "#{content_block.class.name.underscore.sub(/\Aredditor\//, '')}_#{content_block.id.nil? ? f.object.temp_id : content_block.id}"}
-    = f.text_field :position, class: 'js-position', hidden: true
+    = f.text_field :position, class: 'redditor__position', hidden: true
     = render :partial => "redditor/admin/pages/#{content_block.class.name.underscore.sub('redditor/', '')}", locals: {f: f}
     = f.hidden_field :temp_id

@@ -36,7 +36,7 @@ REDDE.redditor.parameterizationForm = (box) ->
 REDDE.redditor.setPositions = ->
   $el = REDDE.redditor.$el
   $el.find($el.sortable("option", "items")).each (i) ->
-    $(this).find("input.js-position").val i # временное решение с input type=number
+    $(@).find("input.redditor__position").val i
 
 REDDE.redditor.sortList = ->
   sortArray = $.map REDDE.redditor.$el.find("dd"), (n) ->
