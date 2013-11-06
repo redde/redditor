@@ -9,6 +9,7 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'sass-rails'
 gem "compass-rails", "~> 2.0.alpha.0"
+gem 'fileapi', git: 'git@github.com:redde/fileapi.git'
 
 # Declare your gem's dependencies in redditor.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and

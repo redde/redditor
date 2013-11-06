@@ -1,4 +1,6 @@
 @import "compass";
+@import 'fileapi/fileapi';
+
 dl.redditor {
   dd {
     /*нельзя задавать position-relative, иначе глючит сортировка в хроме*/
