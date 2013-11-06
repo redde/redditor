@@ -1,7 +1,5 @@
 //= require fileapi
 
-@import "compass";
-
 dl.redditor {
   dd {
     /*нельзя задавать position-relative, иначе глючит сортировка в хроме*/
@@ -17,21 +15,14 @@ dl.redditor {
     height: 50px !important; overflow: hidden;
     .tit-form {display: block;}
   }
-  label.delete {
-    position: absolute; left:100%; bottom: 100%; white-space:nowrap;
-    @include transform(rotate(90deg));
-    @include transform-origin(0, 100%);
-  }
   .ui-sortable-helper, .ui-sortable-placeholder {
     /*max-height: 200px !important; overflow: hidden;*/
-  }
-  .upload-area {
-    overflow: hidden; margin-top: 10px;
   }
 }
 
 ul.slider-block-images {
   overflow: hidden;
+  padding: 0;
   li {
     margin: 0 5px 5px 0; list-style: none;
     float: left; position: relative;
@@ -47,6 +38,7 @@ div.redditor-add-blocks {
     overflow: hidden;
   }
 }
+
 .control-data {float: right;}
 .delete-data, .update-data {
   text-decoration: none;
@@ -56,51 +48,77 @@ div.redditor-add-blocks {
   border: 1px solid #C2C2C2; border-radius: 15px;
   background: #F8F8F8;
 }
+
 .delete-data { color: #A72522;}
 .update-data { color: green;}
 
 .form-name {
   margin-top: 25px;
 }
+
 .tit-form {
   display: none; margin-top: -25px; text-align: center; font-size: 18px;
   line-height: 30px; vertical-align: middle;
   img { width: 30px; display: inline-block; vertical-align: middle;}
 }
+
 .line-form {
   display: inline-block; margin-right: 5px;
 }
+
 .del-item {
   text-decoration: none; position: absolute; right: 1px; bottom: 1px;
   width: 22px; height: 22px;
   background: #eee image-url('redditor/trash.png') center no-repeat;
   border-radius: 15px; border: 1px solid #aaa;
 }
+
 .full-width {
   width: 100%; box-sizing: border-box;
 }
+
 .add-txt, .add-video, .add-photo, .add-slider {
   text-decoration: none; color: #222; float: left; padding: 4px 10px 4px 25px;
   border-radius: 3px; border: 1px solid #ccc; font-size: 11px; margin-right: 3px;
 }
+
 .add-txt {
-  @include background(image-url('redditor/add_txt.png') 3px center no-repeat, linear-gradient(top, #fff 0%, #f5f5f5 49%, #ececec 50%, #eee 100%));
+  background:#f5f5f5 image-url('redditor/add_txt.png') 3px center no-repeat;
+  background: image-url('redditor/add_txt.png') 3px center no-repeat, -webkit-linear-gradient(top, #fff 0%, #f5f5f5 49%, #ececec 50%, #eee 100%);
+  background: image-url('redditor/add_txt.png') 3px center no-repeat, -moz-gradient(top, #fff 0%, #f5f5f5 49%, #ececec 50%, #eee 100%);
+  background: image-url('redditor/add_txt.png') 3px center no-repeat, -o-gradient(top, #fff 0%, #f5f5f5 49%, #ececec 50%, #eee 100%);
+  background: image-url('redditor/add_txt.png') 3px center no-repeat, linear-gradient(to bottom, #fff 0%, #f5f5f5 49%, #ececec 50%, #eee 100%);
 }
 .add-video {
-  @include background(image-url('redditor/add_video.png') 3px center no-repeat, linear-gradient(top, #fff 0%, #f5f5f5 49%, #ececec 50%, #eee 100%));
+  background:#f5f5f5 image-url('redditor/add_video.png') 3px center no-repeat;
+  background: image-url('redditor/add_video.png') 3px center no-repeat, -webkit-linear-gradient(top, #fff 0%, #f5f5f5 49%, #ececec 50%, #eee 100%);
+  background: image-url('redditor/add_video.png') 3px center no-repeat, -moz-linear-gradient(top, #fff 0%, #f5f5f5 49%, #ececec 50%, #eee 100%);
+  background: image-url('redditor/add_video.png') 3px center no-repeat, -o-linear-gradient(top, #fff 0%, #f5f5f5 49%, #ececec 50%, #eee 100%);
+  background: image-url('redditor/add_video.png') 3px center no-repeat, linear-gradient(to bottom, #fff 0%, #f5f5f5 49%, #ececec 50%, #eee 100%);
 }
 .add-photo {
-  @include background(image-url('redditor/add_photo.png') 3px center no-repeat, linear-gradient(top, #fff 0%, #f5f5f5 49%, #ececec 50%, #eee 100%));
+  background:#f5f5f5 image-url('redditor/add_photo.png') 3px center no-repeat;
+  background: image-url('redditor/add_photo.png') 3px center no-repeat, -webkit-linear-gradient(top, #fff 0%, #f5f5f5 49%, #ececec 50%, #eee 100%);
+  background: image-url('redditor/add_photo.png') 3px center no-repeat, -moz-linear-gradient(top, #fff 0%, #f5f5f5 49%, #ececec 50%, #eee 100%);
+  background: image-url('redditor/add_photo.png') 3px center no-repeat, -o-linear-gradient(top, #fff 0%, #f5f5f5 49%, #ececec 50%, #eee 100%);
+  background: image-url('redditor/add_photo.png') 3px center no-repeat, linear-gradient(to bottom, #fff 0%, #f5f5f5 49%, #ececec 50%, #eee 100%);
 }
 .add-slider {
-  @include background(image-url('redditor/add_slider.png') 3px center no-repeat, linear-gradient(top, #fff 0%, #f5f5f5 49%, #ececec 50%, #eee 100%));
+  background:#f5f5f5 image-url('redditor/add_slider.png') 3px center no-repeat;
+  background: image-url('redditor/add_slider.png') 3px center no-repeat, -webkit-linear-gradient(top, #fff 0%, #f5f5f5 49%, #ececec 50%, #eee 100%);
+  background: image-url('redditor/add_slider.png') 3px center no-repeat, -moz-linear-gradient(top, #fff 0%, #f5f5f5 49%, #ececec 50%, #eee 100%);
+  background: image-url('redditor/add_slider.png') 3px center no-repeat, -o-linear-gradient(top, #fff 0%, #f5f5f5 49%, #ececec 50%, #eee 100%);
+  background: image-url('redditor/add_slider.png') 3px center no-repeat, linear-gradient(to bottom, #fff 0%, #f5f5f5 49%, #ececec 50%, #eee 100%);
 }
+
 a.redactor_btn_format {
   background: image-url('redditor/no_format_text.png') center no-repeat !important;
 }
 a.redactor_btn_divide {
   background: image-url('redditor/destroy_block_text.png') center no-repeat !important;
 }
+
+// стили для тестирования
 // dl.redditor dd:before {
 //   content: "class: " attr(class); display: block; padding: 2px; background: #fcc;
 // }
