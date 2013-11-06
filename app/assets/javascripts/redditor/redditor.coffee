@@ -1,3 +1,6 @@
+#= require fileapi
+#= require fileapi/uploader
+
 window.REDDE = {redditor: {}}
 REDDE.redditor.sliderBlockImagesSortableParams =
   scroll: false
