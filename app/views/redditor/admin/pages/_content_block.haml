@@ -21,7 +21,7 @@
       class: "redditor__delete",
       :method => :delete, 
       remote: true, 
-      data: {confirm: "Вы, действительно, хотите удалить контент-блок?", disable_with: "✘ #{t "redditor.deleting"}"}
+      data: {confirm: "Вы, действительно, хотите удалить контент-блок?", disable_with: t("redditor.deleting")}
     
     = link_to "", 
       [redditor, :admin, p.object, content_block], 
