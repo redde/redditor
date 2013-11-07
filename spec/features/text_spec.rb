@@ -13,8 +13,8 @@ describe "Text block" do
   def visit_article() visit "/admin/articles/#{article.id}/edit"; end
   def add_block() find_link(I18n.t("redditor.add.text_block")).click; end
   def submit() find_button("Submit").click; end
-  def save_block() find_link("✔").click; end
-  def delete_block() find_link("✘").click; end
+  def save_block() find("a.redditor__update").click; end
+  def delete_block() find("a.redditor__delete").click; end
 
   it "Saves text block to article", type: :feature, js: true do
     add_block
@@ -26,12 +26,13 @@ describe "Text block" do
   it "Shows validation error if text block content is empty", type: :feature, js: true do
     add_block
     submit
-    expect(page.find(".errors")).to have_content "can't be blank"
+    expect(page).to have_content "can't be blank"
   end
 
   it "Deletes text block", type: :feature, js: true do
     article.page.text_blocks.build(body: "123", position: 1).save
     visit_article
+    save_page
     delete_block
     visit_article
     text_value = begin

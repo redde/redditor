@@ -13,8 +13,8 @@ describe "Video block" do
   def visit_article() visit "/admin/articles/#{article.id}/edit"; end
   def add_block() find_link(I18n.t("redditor.add.video_block")).click; end
   def submit() find_button("Submit").click; end
-  def save_block() find_link("✔").click; end
-  def delete_block() find_link("✘").click; end
+  def save_block() find("a.redditor__update").click; end
+  def delete_block() find("a.redditor__delete").click; end
 
   it "Saves video block to article", type: :feature, js: true do
     add_block
