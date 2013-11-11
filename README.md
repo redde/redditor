@@ -39,6 +39,10 @@ In admin new/edit view if that model add
 
     %div= render "redditor/admin/pages/page", {f: f}
 
+Add `multipart: true` to form of object with redditor
+
+    html: {multipart: true}
+
 Add engine to `routes.rb`
 
     mount Redditor::Engine => "/redditor"
@@ -46,3 +50,11 @@ Add engine to `routes.rb`
 Add this line to edit action in controller (change @article to you model)
 
     @article.build_page.save unless @article.page
+
+Add redditor js to your js manifest file for admin (admin.js)
+
+    //= require redditor/application
+
+Add redditor styles to css manifest file for admin (admin.css)
+
+    //= require redditor/application
