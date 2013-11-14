@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rmagick"
   s.add_dependency "coffee-rails"
   s.add_dependency "jquery-rails"
+  # s.add_dependency 'fileapi', git: 'git@github.com:redde/fileapi.git'
 
   s.add_development_dependency 'jquery-rails'
   s.add_development_dependency 'capybara'
