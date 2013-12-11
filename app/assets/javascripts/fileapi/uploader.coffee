@@ -117,18 +117,18 @@ $ ->
     ).insertAfter "#page-header" # если загрузка не поддерживается, то выводим сообщение
     $('#buttons-panel').hide()
 
-
-  if FileAPI.support.dnd
-    $('#drag-n-drop').show() #выводим текст с сообщение что работает dnd
-    $(document).dnd (over) ->
-      $('#drop-zone').toggleClass "active", over #Если кто-то перетащил файлы в браузер подсвечиваем область в которую их можно бросить
-      return
-    , ->
-    $('#drop-zone').dnd (over) ->
-      return
-    , (files) ->
-      onFiles files, this
-      return
+  # закоментил, пока пересекается с fileapi
+  # if FileAPI.support.dnd
+  #   $('#drag-n-drop').show() #выводим текст с сообщение что работает dnd
+  #   $(document).dnd (over) ->
+  #     $('#drop-zone').toggleClass "active", over #Если кто-то перетащил файлы в браузер подсвечиваем область в которую их можно бросить
+  #     return
+  #   , ->
+  #   $('#drop-zone').dnd (over) ->
+  #     return
+  #   , (files) ->
+  #     onFiles files, this
+  #     return
 
   $('.redditor').on 'change', 'input.redditor__js-fileapi[type="file"]', (evt) ->
     files = FileAPI.getFiles(evt)
