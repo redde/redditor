@@ -84,7 +84,7 @@ FU =
             </div>'
 
 
-window.onFiles = (files, context) ->
+onFiles = (files, context) ->
   $context = $(context)
   if uploadUrl = $context.data("upload-url")
     FU.config.uploadUrl = uploadUrl
@@ -102,7 +102,7 @@ window.onFiles = (files, context) ->
       $("#oooops").show()
       $("#buttons-panel").hide()
     else
-      $("#preview").append tmpl(window.FU.template,
+      $("#preview").append tmpl(FU.template,
         file: file
         icon: FU.icon
       )
