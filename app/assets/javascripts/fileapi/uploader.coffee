@@ -130,7 +130,7 @@ $ ->
       onFiles files, this
       return
 
-  $(document).on 'change', 'input.js-fileapi[type="file"]', (evt) ->
+  $('.redditor').on 'change', 'input.redditor__js-fileapi[type="file"]', (evt) ->
     files = FileAPI.getFiles(evt)
     onFiles(files, this)
     FileAPI.reset(evt.currentTarget)
