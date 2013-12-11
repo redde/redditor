@@ -1,5 +1,5 @@
 #= require fileapi
-#= require fileapi/uploader
+#= require redditor/uploader
 
 window.REDDE = {redditor: {}}
 REDDE.redditor.sliderBlockImagesSortableParams =

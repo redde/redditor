@@ -1,4 +1,4 @@
-window.FU =
+FU =
   config:
     maxFileSizeMB: 10
     messages:

@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.ui.all
 //= require jquery_ujs
-//= require redditor/application
+//= require redditor
 //= require_tree .

@@ -7,6 +7,7 @@ gem 'haml-rails'
 gem 'haml'
 gem 'coffee-rails'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'sass-rails'
 gem 'fileapi', git: 'git@github.com:redde/fileapi.git'
 
