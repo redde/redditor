@@ -92,10 +92,17 @@ $ ->
       $(@).removeClass("now-sortable")
       return
 
-  .on "ajax:beforeSend", "a.redditor__update", (event, xhr, status) ->
+  .on "click", "a.redditor__update", (event) ->
+    event.preventDefault()
     box = $(@).closest "dd"
     params = REDDE.redditor.parameterizationForm(box)
-    status.url += "?" + $.param(params)
+    if params.content_block.id
+      $.extend params, _method: 'patch'
+    $.ajax({
+      method: 'POST',
+      url: this.href,
+      data: params
+    })
 
   $("ul.slider-block-images").sortable REDDE.redditor.sliderBlockImagesSortableParams
 
