@@ -22,7 +22,7 @@ REDDE.redditor.sliderBlockImagesSortableParams =
 
 REDDE.redditor.parameterizationForm = (box) ->
   form = box.serializeForm()
-  formName = box.find("div.form-name").data("object-name")
+  formName = box.find("div.redditor__form").data("object-name")
   firstProperty = formName.replace(/^(.*?)\[.*/,"$1")
   nextProperties = formName.match(/\[(.*?)\]/g)
   nextProperties = $.map nextProperties, (n)->
@@ -41,7 +41,7 @@ REDDE.redditor.setPositions = ->
 REDDE.redditor.sortList = ->
   sortArray = $.map REDDE.redditor.$el.find("dd"), (n) ->
     key = $(n).attr("class")
-    input = $(n).find("input[type=hidden][name='#{$(n).find("div.form-name").data("object-name")}[id]']")
+    input = $(n).find("input[type=hidden][name='#{$(n).find("div.redditor__form").data("object-name")}[id]']")
     value = input.val()
     # console.log input, value
     if value?

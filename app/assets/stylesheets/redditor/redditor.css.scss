@@ -55,7 +55,7 @@ ul.slider-block-images {
   &:before {content: '✔'}
 }
 
-.form-name {
+.redditor__form {
   margin-top: 25px;
 }
 
@@ -131,7 +131,7 @@ a.redactor_btn_divide {
 //   content: "class: " attr(class); display: block; padding: 2px; background: #fcc;
 // }
 
-// dl.redditor div.form-name:before {
+// dl.redditor div.redditor__form:before {
 //   content: "object-name: " attr(data-object-name) "\A id: " attr(id); display: block; padding: 2px; background: #ffc;
 //   white-space: pre;
 // }
