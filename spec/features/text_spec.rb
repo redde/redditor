@@ -18,7 +18,7 @@ describe "Text block" do
 
   it "Saves text block to article", type: :feature, js: true do
     add_block
-    page.find(".text-block-input").set("test text block")
+    page.find(".redditor__textarea").set("test text block")
     submit
     expect(page.find("textarea").value).to eq "test text block"
   end
@@ -45,7 +45,7 @@ describe "Text block" do
 
   it "Saves text block to article on save button", type: :feature, js: true do
     add_block
-    page.find(".text-block-input").set("test text block")
+    page.find(".redditor__textarea").set("test text block")
     save_block
     visit_article
     expect(page.find("textarea").value).to eq "test text block"

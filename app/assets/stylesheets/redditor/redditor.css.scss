@@ -13,7 +13,7 @@ dl.redditor {
   }
   &.now-sortable dd {
     height: 50px !important; overflow: hidden;
-    .tit-form {display: block;}
+    .redditor__title {display: block;}
   }
   .ui-sortable-helper, .ui-sortable-placeholder {
     /*max-height: 200px !important; overflow: hidden;*/
@@ -30,6 +30,12 @@ ul.slider-block-images {
     background: #fff;
     img {display: block;}
   }
+}
+
+.redditor__sep {
+  margin:5px 0;
+  height:1px;
+  background:#ccc
 }
 
 .redditor__add-blocks {
@@ -59,10 +65,18 @@ ul.slider-block-images {
   margin-top: 25px;
 }
 
-.tit-form {
+.redditor__title {
   display: none; margin-top: -25px; text-align: center; font-size: 18px;
   line-height: 30px; vertical-align: middle;
   img { width: 30px; display: inline-block; vertical-align: middle;}
+}
+
+.redditor__textarea {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
 }
 
 .line-form {

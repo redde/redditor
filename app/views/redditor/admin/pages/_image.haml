@@ -1,4 +1,4 @@
-.tit-form
+.redditor__title
   = t 'redditor.title.image'
   = image_tag 'redditor/add_photo_big.png'
 - if f.object.src.present?
@@ -7,7 +7,7 @@
 .condom{style: "margin:5px 0;"}
 = f.text_field :description, placeholder: t("redditor.description"), class: 'full-width'
 
-.condom{style: "margin:5px 0; height:1px; background:#ccc;"}
+.redditor__sep
 
 .b-button.js-fileapi-wrapper
   - if f.object.new_record?
