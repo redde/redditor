@@ -4,19 +4,19 @@ class Redditor::Admin::VideoBlocksController < Redditor::Admin::BaseController
 
   def new
     @content_block = @page.video_blocks.build(content_block_params)
-    render "redditor/admin/pages/new"
+    render "redditor/new"
   end
 
   def update
     @content_block = @page.video_blocks.find(params[:id])
     @content_block.update_attributes(content_block_params)
-    render "redditor/admin/pages/wrapper"
+    render "redditor/wrapper"
   end
 
   def create
     @content_block = @page.video_blocks.build(content_block_params)
     @content_block.save
-    render "redditor/admin/pages/wrapper"
+    render "redditor/wrapper"
   end
 
   def destroy

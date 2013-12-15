@@ -5,7 +5,7 @@ module Redditor
     end
 
     def redditor_validate f
-      render "redditor/admin/pages/validate", {f: f} 
+      render "redditor/validate", {f: f} 
     end
   end
 end

@@ -7,7 +7,7 @@
 
 - unless f.object.new_record?
   %ul.slider-block-images{data: {"sortable-url" => redditor.sort_admin_page_slider_block_images_path(f.object.page_id, f.object.id)}}
-    = render partial: "redditor/admin/pages/slider_block_image", collection: f.object.images, :as => :i
+    = render partial: "redditor/slider_block_image", collection: f.object.images, :as => :i
 
 .redditor__sep
 

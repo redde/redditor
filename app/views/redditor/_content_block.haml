@@ -29,7 +29,7 @@
   = p.fields_for real_name(content_block).pluralize.to_sym, content_block, :include_id => false do |f|
     %div.redditor__form{data: {"object-name" => f.object.temp_id.present? ? f.object_name.sub!(/\[\d*\]/, "[#{f.object.temp_id}]") : f.object_name}, id: "#{real_name(content_block)}_#{content_block.id.nil? ? f.object.temp_id : content_block.id}"}
       = f.text_field :position, class: 'redditor__position', hidden: true
-      = render :partial => "redditor/admin/pages/#{real_name(content_block)}", locals: {f: f}
+      = render :partial => "redditor/#{real_name(content_block)}", locals: {f: f}
       - unless f.object.new_record?
         = f.hidden_field :id
       = f.hidden_field :temp_id

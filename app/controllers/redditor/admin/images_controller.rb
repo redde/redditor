@@ -17,7 +17,7 @@ class Redditor::Admin::ImagesController < Redditor::Admin::BaseController
     @slider_block = @page.slider_blocks.find(params[:slider_block_id])
     @image = @slider_block.images.build(src: params[:file])
     if @image.save
-      render "redditor/admin/pages/slider_block_image"
+      render "redditor/slider_block_image"
     end
   end
 
