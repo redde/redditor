@@ -14,4 +14,11 @@
 //= require jquery.ui.all
 //= require jquery_ujs
 //= require redditor
-//= require_tree .
+//= require jquery-migrate-1.2.1
+//= require redactor/redactor
+//= require redactor/langs/ru
+//= require redactor/toolbars/default
+
+$(function(){
+  $('textarea').redactor()
+})
