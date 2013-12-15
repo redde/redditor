@@ -1,33 +1,35 @@
-.redditor__handle
+%dd{class: content_block.class.name.underscore.sub('redditor/', '')}
+  .redditor__handle
 
-- if content_block.new_record?
   .redditor__control
-    = link_to "", 
-      "javascript:void(0);", 
-      class: "redditor__delete",
-      onclick: "if (confirm('#{t "redditor.remove?"}')) $(this).closest('dd').remove();"
-    
-    = link_to "", 
-      [redditor, :admin, p.object, content_block], 
-      class: "redditor__update",
-      data: {:disable_with => t("redditor.saving")}
+    - if content_block.new_record?
+      = link_to "", 
+        "javascript:void(0);", 
+        class: "redditor__delete",
+        onclick: "if (confirm('#{t "redditor.remove?"}')) $(this).closest('dd').remove();"
+      
+      = link_to "", 
+        [redditor, :admin, p.object, content_block], 
+        class: "redditor__update",
+        data: {:disable_with => t("redditor.saving")}
 
-- else
-  .redditor__control
-    = link_to "", 
-      [redditor, :admin, p.object, content_block], 
-      class: "redditor__delete",
-      :method => :delete, 
-      remote: true, 
-      data: {confirm: "Вы, действительно, хотите удалить контент-блок?", disable_with: t("redditor.deleting")}
-    
-    = link_to "", 
-      [redditor, :admin, p.object, content_block], 
-      class: "redditor__update", 
-      data: {disable_with: t("redditor.saving")}
+    - else
+      = link_to "", 
+        [redditor, :admin, p.object, content_block], 
+        class: "redditor__delete",
+        :method => :delete, 
+        remote: true, 
+        data: {confirm: "Вы, действительно, хотите удалить контент-блок?", disable_with: t("redditor.deleting")}
+      
+      = link_to "", 
+        [redditor, :admin, p.object, content_block], 
+        class: "redditor__update", 
+        data: {disable_with: t("redditor.saving")}
 
-= p.fields_for content_block.class.name.underscore.sub('redditor/', '').pluralize.to_sym, content_block do |f|
-  %div.redditor__form{data: {"object-name" => f.object.temp_id.present? ? f.object_name.sub!(/\[\d*\]/, "[#{f.object.temp_id}]") : f.object_name}, id: "#{content_block.class.name.underscore.sub(/\Aredditor\//, '')}_#{content_block.id.nil? ? f.object.temp_id : content_block.id}"}
-    = f.text_field :position, class: 'redditor__position', hidden: true
-    = render :partial => "redditor/admin/pages/#{content_block.class.name.underscore.sub('redditor/', '')}", locals: {f: f}
-    = f.hidden_field :temp_id
+  = p.fields_for content_block.class.name.underscore.sub('redditor/', '').pluralize.to_sym, content_block, :include_id => false do |f|
+    %div.redditor__form{data: {"object-name" => f.object.temp_id.present? ? f.object_name.sub!(/\[\d*\]/, "[#{f.object.temp_id}]") : f.object_name}, id: "#{content_block.class.name.underscore.sub(/\Aredditor\//, '')}_#{content_block.id.nil? ? f.object.temp_id : content_block.id}"}
+      = f.text_field :position, class: 'redditor__position', hidden: true
+      = render :partial => "redditor/admin/pages/#{content_block.class.name.underscore.sub('redditor/', '')}", locals: {f: f}
+      - unless f.object.new_record?
+        = f.hidden_field :id
+      = f.hidden_field :temp_id
