@@ -1,63 +1,63 @@
 do ($ = jQuery)->
-  $.redditor = {}
-  $.redditor.sliderBlockImagesSortableParams =
-    scroll: false
-    dropOnEmpty: false
-    cursor: "crosshair"
-    opacity: 0.75
-    items: "li"
-    update: ->
-      self = $(@)
-      $.ajax
-        data: self.sortable('serialize') + '&authenticity_token=#{u(form_authenticity_token)}'
-        dataType: 'script'
-        url: self.data("sortable-url")
-      .done ->
-        return
-      .error ->
-        alert "Ошибка, данные не сохранены"
+  $.redditor =
+    sliderBlockImagesSortableParams:
+      scroll: false
+      dropOnEmpty: false
+      cursor: "crosshair"
+      opacity: 0.75
+      items: "li"
+      update: ->
+        self = $(@)
+        $.ajax
+          data: self.sortable('serialize') + '&authenticity_token=#{u(form_authenticity_token)}'
+          dataType: 'script'
+          url: self.data("sortable-url")
+        .done ->
+          return
+        .error ->
+          alert "Ошибка, данные не сохранены"
 
-  $.redditor.parameterizationForm = (box) ->
-    form = box.serializeForm()
-    formName = box.find("div.redditor__form").data("object-name")
-    firstProperty = formName.replace(/^(.*?)\[.*/,"$1")
-    nextProperties = formName.match(/\[(.*?)\]/g)
-    nextProperties = $.map nextProperties, (n)->
-      n.replace(/\[(.*)\]/,"$1")
-    params = form[firstProperty]
-    for i in nextProperties
-      params = params[i]
-    params = "content_block": params
+    parameterizationForm: (box) ->
+      form = box.serializeForm()
+      formName = box.find("div.redditor__form").data("object-name")
+      firstProperty = formName.replace(/^(.*?)\[.*/,"$1")
+      nextProperties = formName.match(/\[(.*?)\]/g)
+      nextProperties = $.map nextProperties, (n)->
+        n.replace(/\[(.*)\]/,"$1")
+      params = form[firstProperty]
+      for i in nextProperties
+        params = params[i]
+      params = "content_block": params
 
-  $.redditor.setPositions = ->
-    $el = $.redditor.$el
-    $el.find($el.sortable("option", "items")).each (i) ->
-      $(@).find("input.redditor__position").val i
+    setPositions: ->
+      $el = $.redditor.$el
+      $el.find($el.sortable("option", "items")).each (i) ->
+        $(@).find("input.redditor__position").val i
 
-  $.redditor.sortList = ->
-    sortArray = $.map $.redditor.$el.find("dd"), (n) ->
-      key = $(n).attr("class")
-      input = $(n).find("input[type=hidden][name='#{$(n).find("div.redditor__form").data("object-name")}[id]']")
-      value = input.val()
-      if value?
-        obj = {}
-        obj[key] =
-          index: value
-          position: $(n).index()      
-        obj
+    sortList: ->
+      sortArray = $.map $.redditor.$el.find("dd"), (n) ->
+        key = $(n).attr("class")
+        input = $(n).find("input[type=hidden][name='#{$(n).find("div.redditor__form").data("object-name")}[id]']")
+        value = input.val()
+        if value?
+          obj = {}
+          obj[key] =
+            index: value
+            position: $(n).index()      
+          obj
+        else
+          null
+
+      if sortArray.length
+        $.ajax
+          type: "post"
+          # data: self.sortable('serialize') + '&authenticity_token=<%= u(form_authenticity_token) %>',
+          data: {sort: sortArray}
+          dataType: "script"
+          url: $.redditor.$el.data("sort-url")
+        .done($.redditor.setPositions)
       else
-        null
-
-    if sortArray.length
-      $.ajax
-        type: "post"
-        # data: self.sortable('serialize') + '&authenticity_token=<%= u(form_authenticity_token) %>',
-        data: {sort: sortArray}
-        dataType: "script"
-        url: $.redditor.$el.data("sort-url")
-      .done($.redditor.setPositions)
-    else
-      $.redditor.setPositions()
+        $.redditor.setPositions()
 
 #! jquery-serializeForm - Make an object out of form elements - v1.1.1 - 2013-01-21
 #* https://github.com/danheberden/jquery-serializeForm
