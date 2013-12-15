@@ -3,3 +3,4 @@ $("#<%= real_name(@content_block) %>_<%= @content_block.temp_id %>, #<%= real_na
 # .find("textarea:visible:not(.nowred)").redactor(reddactorSettings)
 .end()
 .find("ul.slider-block-images").sortable $.redditor.sliderBlockImagesSortableParams
+$.redditor.afterFunc()

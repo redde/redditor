@@ -19,6 +19,6 @@
 //= require redactor/langs/ru
 //= require redactor/toolbars/default
 
-$(function(){
-  $('textarea').redactor()
-})
+$.redditor.afterFunc = function(){
+  $.redditor.$el.find('textarea').redactor();
+};

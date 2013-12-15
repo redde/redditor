@@ -59,6 +59,8 @@ do ($ = jQuery)->
       else
         $.redditor.setPositions()
 
+    afterFunc: ->
+
 #! jquery-serializeForm - Make an object out of form elements - v1.1.1 - 2013-01-21
 #* https://github.com/danheberden/jquery-serializeForm
 #* Copyright (c) 2013 Dan Heberden; Licensed MIT 
@@ -109,41 +111,39 @@ do ($ = jQuery) ->
 $ ->
   $.redditor.$el = $("#redditor")
 
-  # $(".add_fields").click ->
-  #   time = new Date().getTime()
-  #   regexp = new RegExp($(this).data("id"), "g")
-  #   self = $.redditor.$el.append($(this).data("fields").replace(regexp, time))
-  #   $.redditor.setPositions()
+  if $.redditor.$el.length
 
-  $.redditor.$el.sortable
-    dropOnEmpty: false
-    cursor: "crosshair"
-    opacity: 0.75
-    handle: ".redditor__handle"
-    axis: "y"
-    items: "dd"
-    scroll: false
-    update: $.redditor.sortList
-    start: ->
-      # необходимо обновить, чтобы сортировака работала корректно, тк меняем высоту блоков
-      $(@).addClass("redditor_sortable").sortable( "refresh" )
-      return
-    stop: ->
-      $(@).removeClass("redditor_sortable")
-      return
+    $.redditor.$el.sortable
+      dropOnEmpty: false
+      cursor: "crosshair"
+      opacity: 0.75
+      handle: ".redditor__handle"
+      axis: "y"
+      items: "dd"
+      scroll: false
+      update: $.redditor.sortList
+      start: ->
+        # необходимо обновить, чтобы сортировака работала корректно, тк меняем высоту блоков
+        $(@).addClass("redditor_sortable").sortable( "refresh" )
+        return
+      stop: ->
+        $(@).removeClass("redditor_sortable")
+        return
 
-  .on "click", "a.redditor__update", (event) ->
-    event.preventDefault()
-    box = $(@).closest "dd"
-    params = $.redditor.parameterizationForm(box)
-    if params.content_block.id
-      $.extend params, _method: 'patch'
-    $.ajax
-      method: 'POST',
-      url: this.href,
-      data: params
+    .on "click", "a.redditor__update", (event) ->
+      event.preventDefault()
+      box = $(@).closest "dd"
+      params = $.redditor.parameterizationForm(box)
+      if params.content_block.id
+        $.extend params, _method: 'patch'
+      $.ajax
+        method: 'POST',
+        url: this.href,
+        data: params
 
-  $("ul.slider-block-images").sortable $.redditor.sliderBlockImagesSortableParams
+    $("ul.slider-block-images").sortable $.redditor.sliderBlockImagesSortableParams
 
-  $('div.redditor__add-blocks').on "ajax:beforeSend", "a.redditor__add", (event, xhr, status) ->
-    status.url += "?" + $.param(content_block: {temp_id: new Date().getTime()}) # generate uniq id
+    $('div.redditor__add-blocks').on "ajax:beforeSend", "a.redditor__add", (event, xhr, status) ->
+      status.url += "?" + $.param(content_block: {temp_id: new Date().getTime()}) # generate uniq id
+
+    $.redditor.afterFunc()
