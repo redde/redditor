@@ -8,7 +8,6 @@ dl.redditor {
   }
   &.redditor_sortable dd {
     height: 50px !important; overflow: hidden;
-    .redditor__title {display: block;}
   }
   .ui-sortable-helper, .ui-sortable-placeholder {
     /*max-height: 200px !important; overflow: hidden;*/
@@ -67,9 +66,37 @@ ul.slider-block-images {
 }
 
 .redditor__title {
-  display: none; margin-top: -25px; text-align: center; font-size: 18px;
-  line-height: 30px; vertical-align: middle;
-  img { width: 30px; display: inline-block; vertical-align: middle;}
+  visibility: hidden;
+  margin-top: -27px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 32px;
+  vertical-align: middle;
+  &:after { 
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .redditor_sortable & {
+    visibility: visible;
+  }
+}
+
+.redditor__title_slider:after {
+  content: image-url('redditor/big/slider.png');
+}
+
+.redditor__title_text:after {
+  content: image-url('redditor/big/text.png');
+}
+
+.redditor__title_video:after {
+  content: image-url('redditor/big/video.png');
+}
+
+.redditor__title_image:after {
+  content: image-url('redditor/big/image.png');
 }
 
 .redditor__textarea {

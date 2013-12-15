@@ -1,7 +1,7 @@
-.redditor__title
+.redditor__title.redditor__title_video
   = t 'redditor.title.video'
-  = image_tag 'redditor/add_video_big.png'
 = redditor_validate f
+
 - if f.object.youtube.present?
   %iframe(width="#{f.object.width || "100%"}" height="#{f.object.height || 315}" src="http://www.youtube.com/embed/#{f.object.youtube}" frameborder="0" allowfullscreen)
   %br

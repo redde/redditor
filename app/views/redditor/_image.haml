@@ -1,6 +1,6 @@
-.redditor__title
+.redditor__title.redditor__title_image
   = t 'redditor.title.image'
-  = image_tag 'redditor/add_photo_big.png'
+
 - if f.object.src.present?
   %div{style: "padding: 5px; border: 1px solid #ccc; background:#fff; margin: 5px 0;"}= image_tag f.object.src, style: "max-width: 100%"
 = redditor_validate f
