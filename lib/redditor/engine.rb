@@ -4,8 +4,7 @@ module Redditor
 
     initializer 'redditor.action_controller' do |app|
       ActiveSupport.on_load :action_controller do
-        helper Redditor::FileapiHelper
-        helper Redditor::PagesHelper
+        helper Redditor::ApplicationHelper
       end
     end
   end

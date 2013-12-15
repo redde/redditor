@@ -1,4 +1,4 @@
-%dd{class: content_block.class.name.underscore.sub('redditor/', '')}
+%dd{class: real_name(content_block)}
   .redditor__handle
 
   .redditor__control
@@ -26,8 +26,8 @@
         class: "redditor__update", 
         data: {disable_with: t("redditor.saving")}
 
-  = p.fields_for content_block.class.name.underscore.sub('redditor/', '').pluralize.to_sym, content_block, :include_id => false do |f|
-    %div.redditor__form{data: {"object-name" => f.object.temp_id.present? ? f.object_name.sub!(/\[\d*\]/, "[#{f.object.temp_id}]") : f.object_name}, id: "#{content_block.class.name.underscore.sub(/\Aredditor\//, '')}_#{content_block.id.nil? ? f.object.temp_id : content_block.id}"}
+  = p.fields_for real_name(content_block).pluralize.to_sym, content_block, :include_id => false do |f|
+    %div.redditor__form{data: {"object-name" => f.object.temp_id.present? ? f.object_name.sub!(/\[\d*\]/, "[#{f.object.temp_id}]") : f.object_name}, id: "#{real_name(content_block)}_#{content_block.id.nil? ? f.object.temp_id : content_block.id}"}
       = f.text_field :position, class: 'redditor__position', hidden: true
       = render :partial => "redditor/admin/pages/#{content_block.class.name.underscore.sub('redditor/', '')}", locals: {f: f}
       - unless f.object.new_record?
