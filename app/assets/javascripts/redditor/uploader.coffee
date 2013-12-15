@@ -91,7 +91,7 @@ onFiles = (files, context) ->
 
   if contentBlockId = $context.data("content-block-id")
     FU.config.data = ->
-      REDDE.redditor.parameterizationForm $context.closest("dd")
+      $.redditor.parameterizationForm $context.closest("dd")
   else
     FU.config.data = ->
   

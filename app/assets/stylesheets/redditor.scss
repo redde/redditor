@@ -5,19 +5,20 @@ dl.redditor {
     /*нельзя задавать position-relative, иначе глючит сортировка в хроме*/
     margin: 10px -10px; padding:10px; background:#efefef;
     border: 1px solid #e8e8e8;
-    .handle {
-      width:20px; height: 20px; float: left;
-      background: image-url('redditor/move_handler.png') center no-repeat;
-      cursor: move;
-    }
   }
-  &.now-sortable dd {
+  &.redditor_sortable dd {
     height: 50px !important; overflow: hidden;
     .redditor__title {display: block;}
   }
   .ui-sortable-helper, .ui-sortable-placeholder {
     /*max-height: 200px !important; overflow: hidden;*/
   }
+}
+
+.redditor__handle {
+  width:20px; height: 20px; float: left;
+  background: image-url('redditor/move_handler.png') center no-repeat;
+  cursor: move;
 }
 
 ul.slider-block-images {

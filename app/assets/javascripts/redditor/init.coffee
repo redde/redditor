@@ -1,115 +1,68 @@
-window.REDDE = {redditor: {}}
-REDDE.redditor.sliderBlockImagesSortableParams =
-  scroll: false
-  dropOnEmpty: false
-  cursor: "crosshair"
-  opacity: 0.75
-  items: "li"
-  update: ->
-    self = $(@)
-    $.ajax
-      data: self.sortable('serialize') + '&authenticity_token=#{u(form_authenticity_token)}'
-      dataType: 'script'
-      url: self.data("sortable-url")
-    .done ->
-      # console.log 
-      return
-    .error ->
-      alert "Ошибка, данные не сохранены"
-
-REDDE.redditor.parameterizationForm = (box) ->
-  form = box.serializeForm()
-  formName = box.find("div.redditor__form").data("object-name")
-  firstProperty = formName.replace(/^(.*?)\[.*/,"$1")
-  nextProperties = formName.match(/\[(.*?)\]/g)
-  nextProperties = $.map nextProperties, (n)->
-    n.replace(/\[(.*)\]/,"$1")
-  params = form[firstProperty]
-  for i in nextProperties
-    params = params[i]
-  params = "content_block": params
-
-
-REDDE.redditor.setPositions = ->
-  $el = REDDE.redditor.$el
-  $el.find($el.sortable("option", "items")).each (i) ->
-    $(@).find("input.redditor__position").val i
-
-REDDE.redditor.sortList = ->
-  sortArray = $.map REDDE.redditor.$el.find("dd"), (n) ->
-    key = $(n).attr("class")
-    input = $(n).find("input[type=hidden][name='#{$(n).find("div.redditor__form").data("object-name")}[id]']")
-    value = input.val()
-    # console.log input, value
-    if value?
-      obj = {}
-      obj[key] =
-        index: value
-        position: $(n).index()      
-      obj
-    else
-      null
-
-  # console.log sortArray
-
-  if sortArray.length
-    $.ajax
-      type: "post"
-      # data: self.sortable('serialize') + '&authenticity_token=<%= u(form_authenticity_token) %>',
-      data: {sort: sortArray}
-      dataType: "script"
-      url: REDDE.redditor.$el.data("sort-url")
-    .done(REDDE.redditor.setPositions)
-  else
-    REDDE.redditor.setPositions()
-
-$ ->
-  REDDE.redditor.$el = $("dl.redditor").first()
-
-  $(".add_fields").click ->
-    time = new Date().getTime()
-    regexp = new RegExp($(this).data("id"), "g")
-    self = REDDE.redditor.$el.append($(this).data("fields").replace(regexp, time))
-    REDDE.redditor.setPositions()
-
-  REDDE.redditor.$el.sortable
+do ($ = jQuery)->
+  $.redditor = {}
+  $.redditor.sliderBlockImagesSortableParams =
+    scroll: false
     dropOnEmpty: false
     cursor: "crosshair"
     opacity: 0.75
-    handle: ".handle"
-    axis: "y"
-    items: "dd"
-    scroll: false
-    update: REDDE.redditor.sortList
-    start: ->
-      # необходимо обновить, чтобы сортировака работала корректно, тк меняем высоту блоков
-      $(@).addClass("now-sortable").sortable( "refresh" )
-      return
-    stop: ->
-      $(@).removeClass("now-sortable")
-      return
+    items: "li"
+    update: ->
+      self = $(@)
+      $.ajax
+        data: self.sortable('serialize') + '&authenticity_token=#{u(form_authenticity_token)}'
+        dataType: 'script'
+        url: self.data("sortable-url")
+      .done ->
+        return
+      .error ->
+        alert "Ошибка, данные не сохранены"
 
-  .on "click", "a.redditor__update", (event) ->
-    event.preventDefault()
-    box = $(@).closest "dd"
-    params = REDDE.redditor.parameterizationForm(box)
-    if params.content_block.id
-      $.extend params, _method: 'patch'
-    $.ajax({
-      method: 'POST',
-      url: this.href,
-      data: params
-    })
+  $.redditor.parameterizationForm = (box) ->
+    form = box.serializeForm()
+    formName = box.find("div.redditor__form").data("object-name")
+    firstProperty = formName.replace(/^(.*?)\[.*/,"$1")
+    nextProperties = formName.match(/\[(.*?)\]/g)
+    nextProperties = $.map nextProperties, (n)->
+      n.replace(/\[(.*)\]/,"$1")
+    params = form[firstProperty]
+    for i in nextProperties
+      params = params[i]
+    params = "content_block": params
 
-  $("ul.slider-block-images").sortable REDDE.redditor.sliderBlockImagesSortableParams
+  $.redditor.setPositions = ->
+    $el = $.redditor.$el
+    $el.find($el.sortable("option", "items")).each (i) ->
+      $(@).find("input.redditor__position").val i
 
-  $('div.redditor__add-blocks').on "ajax:beforeSend", "a.redditor__add", (event, xhr, status) ->
-    status.url += "?" + $.param(content_block: {temp_id: new Date().getTime()}) # generate uniq id
+  $.redditor.sortList = ->
+    sortArray = $.map $.redditor.$el.find("dd"), (n) ->
+      key = $(n).attr("class")
+      input = $(n).find("input[type=hidden][name='#{$(n).find("div.redditor__form").data("object-name")}[id]']")
+      value = input.val()
+      if value?
+        obj = {}
+        obj[key] =
+          index: value
+          position: $(n).index()      
+        obj
+      else
+        null
+
+    if sortArray.length
+      $.ajax
+        type: "post"
+        # data: self.sortable('serialize') + '&authenticity_token=<%= u(form_authenticity_token) %>',
+        data: {sort: sortArray}
+        dataType: "script"
+        url: $.redditor.$el.data("sort-url")
+      .done($.redditor.setPositions)
+    else
+      $.redditor.setPositions()
 
 #! jquery-serializeForm - Make an object out of form elements - v1.1.1 - 2013-01-21
 #* https://github.com/danheberden/jquery-serializeForm
 #* Copyright (c) 2013 Dan Heberden; Licensed MIT 
-(($) ->
+do ($ = jQuery) ->
   $.fn.serializeForm = ->
     
     # don't do anything if we didn't get any elements
@@ -152,4 +105,45 @@ $ ->
     
     # return data
     data
-) jQuery
+
+$ ->
+  $.redditor.$el = $("#redditor")
+
+  # $(".add_fields").click ->
+  #   time = new Date().getTime()
+  #   regexp = new RegExp($(this).data("id"), "g")
+  #   self = $.redditor.$el.append($(this).data("fields").replace(regexp, time))
+  #   $.redditor.setPositions()
+
+  $.redditor.$el.sortable
+    dropOnEmpty: false
+    cursor: "crosshair"
+    opacity: 0.75
+    handle: ".redditor__handle"
+    axis: "y"
+    items: "dd"
+    scroll: false
+    update: $.redditor.sortList
+    start: ->
+      # необходимо обновить, чтобы сортировака работала корректно, тк меняем высоту блоков
+      $(@).addClass("redditor_sortable").sortable( "refresh" )
+      return
+    stop: ->
+      $(@).removeClass("redditor_sortable")
+      return
+
+  .on "click", "a.redditor__update", (event) ->
+    event.preventDefault()
+    box = $(@).closest "dd"
+    params = $.redditor.parameterizationForm(box)
+    if params.content_block.id
+      $.extend params, _method: 'patch'
+    $.ajax
+      method: 'POST',
+      url: this.href,
+      data: params
+
+  $("ul.slider-block-images").sortable $.redditor.sliderBlockImagesSortableParams
+
+  $('div.redditor__add-blocks').on "ajax:beforeSend", "a.redditor__add", (event, xhr, status) ->
+    status.url += "?" + $.param(content_block: {temp_id: new Date().getTime()}) # generate uniq id
