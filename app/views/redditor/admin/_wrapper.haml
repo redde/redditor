@@ -1,3 +1,3 @@
 = fields_for @page.pageable.class.name.downcase.to_sym, @page.pageable do |a|
   = a.fields_for :page, :include_id => false do |p|
-    = render "redditor/content_block", {p: p, content_block: content_block}
+    = render "redditor/admin/content_block", {p: p, content_block: content_block}

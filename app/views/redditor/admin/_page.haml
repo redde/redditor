@@ -2,8 +2,7 @@
 
   - unless f.object.new_record?
     %dl#redditor.redditor{data: {"sort-url" => url_for(redditor.sort_admin_page_path(p.object))}}
-      - p.object.content_blocks.each do |content_block|
-        = render partial: "redditor/content_block", locals: {p: p, page: p.object, content_block: content_block}
+      = render partial: "redditor/admin/content_block", collection: p.object.content_blocks, locals: {p: p, page: p.object}
 
     %div.redditor__add-blocks
       %p

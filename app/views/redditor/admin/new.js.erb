@@ -1,0 +1,5 @@
+$.redditor.$el
+.append('<%= j(render(partial: "redditor/admin/wrapper", locals: {content_block: @content_block})) %>')
+.find("ul.slider-block-images").sortable($.redditor.sliderBlockImagesSortableParams)
+$.redditor.sortList()
+$.redditor.afterFunc()
