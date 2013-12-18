@@ -14,7 +14,7 @@ describe Redditor::Generators::ViewsGenerator do
   after(:all) { FileUtils.rm_rf 'tmp' }
 
   it "generates views" do
-    assert_directory "app/views/redditor/admin/pages/_content_block.haml"
+    assert_directory "app/views/redditor/pages/_page.html.haml"
   end 
 
 end

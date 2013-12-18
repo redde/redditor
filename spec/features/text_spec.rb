@@ -18,9 +18,9 @@ describe "Text block" do
 
   it "Saves text block to article", type: :feature, js: true do
     add_block
-    page.find(".redditor__textarea").set("test text block")
+    page.find("textarea").set("test text block")
     submit
-    expect(page.find("textarea").value).to eq "test text block"
+    expect(page).to have_content "test text block"
   end
 
   it "Shows validation error if text block content is empty", type: :feature, js: true do
@@ -45,7 +45,7 @@ describe "Text block" do
 
   it "Saves text block to article on save button", type: :feature, js: true do
     add_block
-    page.find(".redditor__textarea").set("test text block")
+    page.find("textarea").set("test text block")
     save_block
     visit_article
     expect(page.find("textarea").value).to eq "test text block"
