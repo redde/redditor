@@ -1308,7 +1308,7 @@ var RTOOLBAR = {};
 		// TABLE
 		showTable: function()
 		{
-			this.modalInit(RLANG.table, this.opts.path + '/plugins/table.html', 300, $.proxy(function()
+			this.modalInit(RLANG.table, '<%= asset_path "redactor/plugins/table.html" %>', 300, $.proxy(function()
 			{
 				$('#redactor_table_rows').focus();
 				$('#redactor_insert_table_btn').click($.proxy(this.insertTable, this));
@@ -1462,7 +1462,7 @@ var RTOOLBAR = {};
 		{
 			if ($.browser.msie) this.markerIE();
 
-			this.modalInit(RLANG.video, this.opts.path + '/plugins/video.html', 600, $.proxy(function()
+			this.modalInit(RLANG.video, '<%= asset_path "redactor/plugins/video.html" %>', 600, $.proxy(function()
 			{
 				$('#redactor_insert_video_area').focus();
 				$('#redactor_insert_video_btn').click($.proxy(this.insertVideo, this));
@@ -1502,7 +1502,7 @@ var RTOOLBAR = {};
 
 			}, this);
 
-			this.modalInit(RLANG.image, this.opts.path + '/plugins/image_edit.html', 380,  handler);
+			this.modalInit(RLANG.image, '<%= asset_path "redactor/plugins/image_edit.html" %>', 380,  handler);
 
 		},
 		imageDelete: function(el)
@@ -1604,7 +1604,7 @@ var RTOOLBAR = {};
 
 			}, this);
 	
-			this.modalInit(RLANG.image, this.opts.path + '/plugins/image.html', 570, handler, true);
+			this.modalInit(RLANG.image, '<%= asset_path "redactor/plugins/image.html" %>', 570, handler, true);
 
 		},
 		imageSetThumb: function(e)
@@ -1677,7 +1677,7 @@ var RTOOLBAR = {};
 				}
 				else
 				{
-					if (sel && sel.anchorNode.parentNode.tagName == 'A')
+					if (sel && sel.anchorNode && sel.anchorNode.parentNode.tagName == 'A')
 					{
 						var url = sel.anchorNode.parentNode.href;
 						var text = sel.anchorNode.parentNode.text;
@@ -1717,7 +1717,7 @@ var RTOOLBAR = {};
 
 			}, this);
 			
-			this.modalInit(RLANG.link, this.opts.path + '/plugins/link.html', 460, handler);
+			this.modalInit(RLANG.link, '<%= asset_path "redactor/plugins/link.html" %>', 460, handler);
 
 		},
 		insertLink: function()
@@ -1798,7 +1798,7 @@ var RTOOLBAR = {};
 				}, this)});
 			}, this);
 
-			this.modalInit(RLANG.file, this.opts.path + '/plugins/file.html', 500, handler);
+			this.modalInit(RLANG.file, '<%= asset_path "redactor/plugins/file.html" %>', 500, handler);
 		},
 		fileUploadCallback: function(data)
 		{
