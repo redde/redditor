@@ -10,6 +10,9 @@ dl.redditor {
   .ui-sortable-helper, .ui-sortable-placeholder {
     /*max-height: 200px !important; overflow: hidden;*/
   }
+  .field_with_errors {
+    display: inline;
+  }
 }
 
 .redditor__handle {
@@ -103,6 +106,15 @@ ul.slider-block-images {
   box-sizing: border-box;
   width: 100%;
   max-width: 100%;
+}
+
+.redditor__validate {
+  font-weight: bold;
+  font-style: italic;
+  color: #fff;
+  background: rgb(226, 40, 40);
+  padding: 10px 10px 10px 40px;
+  border-radius: 3px
 }
 
 .line-form {
