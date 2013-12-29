@@ -44,13 +44,15 @@ ul.slider-block-images {
 }
 
 .redditor__control {float: right;}
-.redditor__delete, .redditor__update {
+.redditor__delete,
+.redditor__update {
   text-decoration: none;
   display: inline-block;
   text-align: center; min-width: 10px; padding: 0 5px;
   font-size: 10px; line-height: 20px;
   border: 1px solid #C2C2C2; border-radius: 15px;
   background: #F8F8F8;
+  text-decoration: none;
 }
 
 .redditor__delete {
