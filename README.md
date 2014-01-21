@@ -17,11 +17,22 @@ todo: проверить вариант загрузки через fileapi c п
 
 Add gem to your Gemfile
 
+    gem 'fileapi'
     gem 'redditor'
+
+or
+
+    gem 'fileapi', :github => 'redde/fileapi'
+    gem 'redditor', :github => 'redde/redditor'
 
 and
 
     bundle
+
+### TODO:
+add **fileapi** to automation dependencies
+
+
 
 Then generate migrations
 
@@ -37,7 +48,7 @@ Add this to model
 
 In admin new/edit view if that model add
 
-    %div= render "redditor/admin/pages/page", {f: f}
+    %div= render "redditor/admin/page", {f: f}
 
 Add `multipart: true` to form of object with redditor
 
@@ -53,8 +64,11 @@ Add this line to edit action in controller (change @article to you model)
 
 Add redditor js to your js manifest file for admin (admin.js)
 
-    //= require redditor/application
+    //= require jquery
+    //= require jquery.ui.sortable
+    //= require redditor
 
 Add redditor styles to css manifest file for admin (admin.css)
 
-    //= require redditor/application
+    //= require fileapi
+    //= require redditor
