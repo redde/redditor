@@ -6,8 +6,8 @@ module Redditor
 
     after_initialize :default_values # чтобы файл загружался, пока через html5 не передаем позицию
 
-    # attr_accessible :descr, :imageable_id, :imageable_type, :position, :src, :temp_id
-    attr_accessor :temp_id
+    # attr_accessible :descr, :imageable_id, :imageable_type, :position, :src
+    attr_accessor :object_id
 
     mount_uploader :src, RedditorUploader
 

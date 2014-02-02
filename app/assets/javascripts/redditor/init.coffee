@@ -141,9 +141,40 @@ $ ->
         url: this.href,
         data: params
 
+    .on "click", "a.redditor__change", (event) ->
+      event.preventDefault()
+      box = $(@).closest "dd"
+      params = $.redditor.parameterizationForm(box)
+      kind = params.content_block.kind
+      if kind == 'description'
+        params.content_block.kind = ''
+      else if kind == ''
+        params.content_block.kind = 'description'  
+      $.ajax
+        method: 'POST',
+        url: this.href,
+        data: params
+
     $("ul.slider-block-images").sortable $.redditor.sliderBlockImagesSortableParams
 
     $('div.redditor__add-blocks').on "ajax:beforeSend", "a.redditor__add", (event, xhr, status) ->
-      status.url += "?" + $.param(content_block: {temp_id: new Date().getTime()}) # generate uniq id
+      $this = $(@)
+      cssClass = if $this.hasClass 'redditor__add_txt'
+        'text_block'
+      else if $this.hasClass 'redditor__add_video'
+        'video_block'
+      else if $this.hasClass 'redditor__add_photo'
+        'image'
+      else if $this.hasClass 'redditor__add_slider'
+        'slider_block'
+
+      arrIds = $.map $('#redditor').find(".#{cssClass}"), (elem)->
+        $(elem).find('.redditor__form').data('object-id')
+      if arrIds.length
+        objectId = Math.max.apply(null, arrIds) + 1
+      else
+        objectId = 0
+      # generate uniq id
+      status.url += "?" + $.param(content_block: {object_id: objectId})
 
     $.redditor.afterFunc()

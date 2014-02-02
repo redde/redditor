@@ -44,6 +44,7 @@ ul.slider-block-images {
 }
 
 .redditor__control {float: right;}
+.redditor__change,
 .redditor__delete,
 .redditor__update {
   text-decoration: none;
@@ -178,6 +179,9 @@ a.redactor_btn_divide {
 // }
 
 // dl.redditor div.redditor__form:before {
-//   content: "object-name: " attr(data-object-name) "\A id: " attr(id); display: block; padding: 2px; background: #ffc;
+//   content: "object-name: " attr(data-object-name) "\A id: " attr(id) "\A object-id: " attr(data-object-id);
+//   display: block;
+//   padding: 2px;
+//   background: #ffc;
 //   white-space: pre;
 // }

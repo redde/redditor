@@ -7,6 +7,13 @@ class Redditor::Admin::SliderBlocksController < Redditor::Admin::BaseController
     render "redditor/admin/new"
   end
 
+  def change_view
+    @content_block = @page.slider_blocks.find(params[:id])
+    # оставляем только :kind и :object_id параметры, чтобы при возвращении к старому виду описания к фотографиям не сохранялись
+    @content_block.update_attributes(params.require(:content_block).permit(:kind, :object_id))
+    render "redditor/admin/wrapper"
+  end
+
   def update
     @content_block = @page.slider_blocks.find(params[:id])
     @content_block.update_attributes(content_block_params)

@@ -1,35 +1,40 @@
-%dd{class: real_name(content_block)}
-  .redditor__handle
+.redditor__handle
 
-  .redditor__control
-    - if content_block.new_record?
-      = link_to "", 
-        "javascript:void(0);", 
-        class: "redditor__delete",
-        onclick: "if (confirm('#{t "redditor.remove?"}')) $(this).closest('dd').remove();"
-      
-      = link_to "", 
-        [redditor, :admin, p.object, content_block], 
-        class: "redditor__update",
-        data: {:disable_with => t("redditor.saving")}
+.redditor__control
+  - if content_block.new_record?
+    = link_to "", 
+      "javascript:void(0);", 
+      class: "redditor__delete",
+      onclick: "if (confirm('#{t "redditor.remove?"}')) $(this).closest('dd').remove();"
+    
+    = link_to "", 
+      [redditor, :admin, p.object, content_block], 
+      class: "redditor__update",
+      data: {:disable_with => t("redditor.saving")}
 
-    - else
-      = link_to "", 
-        [redditor, :admin, p.object, content_block], 
-        class: "redditor__delete",
-        :method => :delete, 
-        remote: true, 
-        data: {confirm: "Вы, действительно, хотите удалить контент-блок?", disable_with: t("redditor.deleting")}
-      
-      = link_to "", 
-        [redditor, :admin, p.object, content_block], 
-        class: "redditor__update", 
-        data: {disable_with: t("redditor.saving")}
+  - else
+    - if content_block.class == Redditor::SliderBlock
+      = link_to "сменить вид",
+        [redditor, :change_view, :admin, p.object, content_block],
+        class: 'redditor__change'
 
-  = p.fields_for real_name(content_block).pluralize.to_sym, content_block, :include_id => false do |f|
-    %div.redditor__form{data: {"object-name" => f.object.temp_id.present? ? f.object_name.sub!(/\[\d*\]/, "[#{f.object.temp_id}]") : f.object_name}, id: "#{real_name(content_block)}_#{content_block.id.nil? ? f.object.temp_id : content_block.id}"}
-      = f.hidden_field :position, class: 'redditor__position'
-      = render :partial => "redditor/admin/#{real_name(content_block)}", locals: {f: f}
-      - unless f.object.new_record?
-        = f.hidden_field :id
-      = f.hidden_field :temp_id
+    = link_to "", 
+      [redditor, :admin, p.object, content_block], 
+      class: "redditor__delete",
+      :method => :delete, 
+      remote: true, 
+      data: {confirm: "Вы, действительно, хотите удалить контент-блок?", disable_with: t("redditor.deleting")}
+    
+    = link_to "", 
+      [redditor, :admin, p.object, content_block], 
+      class: "redditor__update", 
+      data: {disable_with: t("redditor.saving")}
+
+
+= p.fields_for real_name(content_block).pluralize.to_sym, content_block, :include_id => false do |f|
+  = redditor_form f do
+    = f.hidden_field :position, class: 'redditor__position'
+    = render "redditor/admin/#{real_name(content_block)}", {f: f}
+    - unless content_block.new_record?
+      = f.hidden_field :id
+    = f.hidden_field :object_id, value: f.object.object_id || f.index

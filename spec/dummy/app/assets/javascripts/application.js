@@ -20,5 +20,5 @@
 //= require redactor/toolbars/default
 
 $.redditor.afterFunc = function(){
-  $.redditor.$el.find('textarea').redactor();
+  $.redditor.$el.find('textarea:not(.nowred)').redactor();
 };

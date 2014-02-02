@@ -6,6 +6,7 @@ Redditor::Engine.routes.draw do
         post :update_post, :on => :member
       end
       resources :slider_blocks do
+        post 'change_view', :on => :member
         resources :images do
           get 'sort', :on => :collection
         end
