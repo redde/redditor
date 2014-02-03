@@ -13,6 +13,7 @@ en:
     remove?: "Really delete content block?"
     deleting: ' Deleting...'
     saving: ' Saving...'
+    change_view: Edit description
     title:
       image: Image
       video: Video

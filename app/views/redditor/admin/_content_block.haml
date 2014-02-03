@@ -14,9 +14,10 @@
 
   - else
     - if content_block.class == Redditor::SliderBlock
-      = link_to "сменить вид",
+      = link_to "",
         [redditor, :change_view, :admin, p.object, content_block],
-        class: 'redditor__change'
+        class: 'redditor__change',
+        title: t("redditor.change_view")
 
     = link_to "", 
       [redditor, :admin, p.object, content_block], 

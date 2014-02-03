@@ -64,6 +64,13 @@ ul.slider-block-images {
   color: green;
   &:before {content: '✔'}
 }
+.redditor__change {
+  background-image: image-url('redditor/change_view.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px;
+  &:before {content: "\A0"}
+}
 
 .redditor__form {
   margin-top: 25px;
@@ -143,6 +150,41 @@ ul.slider-block-images {
   border-radius: 3px; 
   border: 1px solid #ccc; 
   font-size: 11px; margin-right: 3px;
+}
+
+.redditor__sl-desc {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.redditor__sl-desc__cell-img,
+.redditor__sl-desc__cell-desc {
+  padding: 5px 0;
+  vertical-align: top;
+  border: 1px solid #ccc;
+  border-width: 1px 0;
+}
+
+.redditor__sl-desc__cell-img {
+  width: 1px;
+  padding-right: 5px;
+}
+
+.redditor__sl-desc__area {
+  width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  resize: none;
+  margin: 0;
+}
+
+.redditor__sl-desc__img {
+  display: block;
+}
+
+.redditor__sl-desc__label {
+  font-weight: bold;
 }
 
 .redditor__add_txt {

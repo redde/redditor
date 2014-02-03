@@ -4,13 +4,12 @@
 
 = f.hidden_field :kind
 
-.redditor__sep
-
 - if redditor_slider_block_kind(f, @content_block)
-  %table
+  %table.redditor__sl-desc
     = f.fields_for :images do |img|
       = render "redditor/admin/slider_block_desc", {img: img}
 - else
+  .redditor__sep
   %ul.slider-block-images{data: {"sortable-url" => redditor.sort_admin_page_slider_block_images_path(f.object.page_id, f.object.id)}}
     = render partial: "redditor/admin/slider_block_image", collection: f.object.images, :as => :i
 
