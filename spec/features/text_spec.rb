@@ -12,7 +12,7 @@ describe "Text block" do
 
   def visit_article() visit "/admin/articles/#{article.id}/edit"; end
   def add_block() find_link(I18n.t("redditor.add.text_block")).click; sleep 1; end
-  def show_text_area() page.execute_script("$('.redditor__textarea').show()"); end
+  def show_text_area() page.execute_script("$('.redditor__textarea').show()"); sleep 1; end
   def submit() find_button("Submit").click; end
   def save_block() find("a.redditor__update").click; end
   def delete_block() find("a.redditor__delete").click; end
