@@ -11,16 +11,19 @@ describe "Text block" do
   end
 
   def visit_article() visit "/admin/articles/#{article.id}/edit"; end
-  def add_block() find_link(I18n.t("redditor.add.text_block")).click; end
+  def add_block() find_link(I18n.t("redditor.add.text_block")).click; sleep 1; end
+  def show_text_area() page.execute_script("$('.redditor__textarea').show()"); end
   def submit() find_button("Submit").click; end
   def save_block() find("a.redditor__update").click; end
   def delete_block() find("a.redditor__delete").click; end
 
   it "Saves text block to article", type: :feature, js: true do
     add_block
-    page.find("textarea").set("test text block")
+    show_text_area
+    find(".redditor__textarea").set("test text block")
     submit
-    expect(page).to have_content "test text block"
+    show_text_area
+    expect(page.find(".redditor__textarea").value).to have_content "test text block"
   end
 
   it "Shows validation error if text block content is empty", type: :feature, js: true do
@@ -32,7 +35,6 @@ describe "Text block" do
   it "Deletes text block", type: :feature, js: true do
     article.page.text_blocks.build(body: "123", position: 1).save
     visit_article
-    save_page
     delete_block
     visit_article
     text_value = begin
@@ -45,9 +47,11 @@ describe "Text block" do
 
   it "Saves text block to article on save button", type: :feature, js: true do
     add_block
+    show_text_area
     page.find("textarea").set("test text block")
     save_block
     visit_article
-    expect(page.find("textarea").value).to eq "test text block"
+    show_text_area
+    expect(page.find(".redditor__textarea").value).to have_content "test text block"
   end
 end
