@@ -14,6 +14,8 @@ require 'capybara/rails'
 require 'capybara/rspec'
 require 'capybara/poltergeist'
 
+Capybara.default_wait_time = ENV['CAPYBARA_WAIT_TIME'].present? ? ENV['CAPYBARA_WAIT_TIME'].to_i : 5
+
 Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, {
     debug: false,
@@ -23,7 +25,6 @@ Capybara.register_driver :poltergeist do |app|
 end
 
 Capybara.javascript_driver = :poltergeist
-Capybara.default_wait_time = 30
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.

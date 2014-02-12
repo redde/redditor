@@ -1,4 +1,4 @@
-script: bundle exec rspec
+script: CAPYBARA_WAIT_TIME=60 bundle exec rspec
 language: ruby
 notifications:
   email: false
