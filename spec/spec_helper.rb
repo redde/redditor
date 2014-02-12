@@ -14,6 +14,14 @@ require 'capybara/rails'
 require 'capybara/rspec'
 require 'capybara/poltergeist'
 
+Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new(app, {
+    debug: false,
+    phantomjs_options: ['--load-images=no', '--disk-cache=false'],
+    js_errors: false
+  })
+end
+
 Capybara.javascript_driver = :poltergeist
 Capybara.default_wait_time = 30
 
@@ -45,9 +53,6 @@ RSpec.configure do |config|
   end
 
   config.include FactoryGirl::Syntax::Methods
-
-  # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
