@@ -23,13 +23,13 @@ describe "Text block" do
     find(".redditor__textarea").set("test text block")
     submit
     show_text_area
-    expect(page.find(".redditor__textarea").value).to have_content "test text block"
+    wait_until { expect(page.find(".redditor__textarea").value).to have_content "test text block" }
   end
 
   it "Shows validation error if text block content is empty", type: :feature, js: true do
     add_block
     submit
-    expect(page).to have_content "can't be blank"
+    wait_until { expect(page).to have_content "can't be blank" }
   end
 
   it "Deletes text block", type: :feature, js: true do
@@ -42,7 +42,7 @@ describe "Text block" do
     rescue
       nil
     end
-    expect(text_value).to eq nil
+    wait_until { expect(text_value).to eq nil }
   end
 
   it "Saves text block to article on save button", type: :feature, js: true do
@@ -52,6 +52,6 @@ describe "Text block" do
     save_block
     visit_article
     show_text_area
-    expect(page.find(".redditor__textarea").value).to have_content "test text block"
+    wait_until { expect(page.find(".redditor__textarea").value).to have_content "test text block" }
   end
 end
