@@ -22,7 +22,8 @@ class RedditorUploader < CarrierWave::Uploader::Base
   end
 
   version :show do
-    process :resize_to_fill => [600, 400]
+    process :resize_to_fill => [960, 640], :if => :is_slider?
+    process :resize_to_limit => [960, 3000], :if => :is_image?
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
@@ -41,6 +42,17 @@ class RedditorUploader < CarrierWave::Uploader::Base
   # version :thumb do
   #   process :scale => [50, 50]
   # end
+
+
+  # Для того чтобы можно было использовать эти методы ввиде условий необходимо,
+  # чтобы изображение сохранялось через update_attributes вместо save
+  def is_slider? picture
+    model.imageable_type == "Redditor::SliderBlock"
+  end
+
+  def is_image? picture
+    model.imageable_type == "Redditor::Page"
+  end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
