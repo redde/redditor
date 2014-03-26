@@ -13,15 +13,13 @@ module Redditor
     def redditor_form(f, &block)
       id = "#{real_name(f.object)}_"
       id += f.object.id.nil? ? "#{f.object.object_id}" : "#{f.object.id}"
-      if f.object.object_id.present?
-        f.object_name.sub!(/\[\d*\]/, "[#{f.object.object_id}]")
-      end
+      f.object_name.sub!(/\[\d*\]/, "[#{f.object.object_id}]") if f.object.object_id.present?
       index = if f.object.object_id.present?
         f.object.object_id
       else
         f.index
       end
-      data = {'object-name' => f.object_name, 'object-id' => index}
+      data = { 'object-name' => f.object_name, 'object-id' => index }
       content_tag(:div, capture(&block), class: 'redditor__form', id: id, data: data)
     end
 

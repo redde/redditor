@@ -1,5 +1,3 @@
-# coding: utf-8
-
 module Redditor
   class Image < ActiveRecord::Base
     self.table_name = "redditor_images"

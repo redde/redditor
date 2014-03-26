@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   resources :articles, only: [:show]
 
   namespace :admin do
-    resources :articles, only: [:edit, :update]
+    resources :articles
   end
 end

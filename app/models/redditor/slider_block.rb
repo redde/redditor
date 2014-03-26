@@ -6,8 +6,8 @@ module Redditor
 
     attr_accessor :object_id, :kind
 
-    belongs_to :page, class_name: "Redditor::Page", touch: true
-    has_many :images, as: :imageable, dependent: :destroy
+    belongs_to :page, class_name: "::Redditor::Page", touch: true
+    has_many :images, as: :imageable, dependent: :destroy, class_name: "::Redditor::Image"
     accepts_nested_attributes_for :images
 
     def self.model_name
