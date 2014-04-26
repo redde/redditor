@@ -19,3 +19,9 @@ en:
       video: Video
       slider: Slider
       text: Text
+
+  activerecord:
+    attributes:
+      video_block:
+        height: Video's height
+        width: Video's width
