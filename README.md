@@ -63,9 +63,11 @@ Add this line to edit action in controller (change @article to you model)
     @article.build_page.save unless @article.page
 
 Add redditor js to your js manifest file for admin (admin.js)
+
     //= require redditor
 
 что включает:
+
     //= require jquery
     //= require jquery_ujs
     //= require jquery-ui/sortable
