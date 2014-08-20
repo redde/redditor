@@ -12,6 +12,10 @@ module Redditor
 
     validates :position, :body, presence: true
     
+    def to_partial_path
+      'redditor/text_block'
+    end
+    
     def self.model_name
       ActiveModel::Name.new(self, nil, 'TextBlock')
     end
