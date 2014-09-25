@@ -1,16 +1,5 @@
 source "https://rubygems.org"
 
-
-gem 'carrierwave'
-gem 'rmagick'
-gem 'haml-rails'
-gem 'haml'
-gem 'coffee-rails'
-gem 'jquery-rails'
-gem 'jquery-ui-rails'
-gem 'sass-rails'
-gem 'fileapi', github: 'redde/fileapi'
-
 # Declare your gem's dependencies in redditor.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
 # development dependencies will be added by default to the :development group.

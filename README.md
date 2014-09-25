@@ -9,7 +9,7 @@ This project rocks and uses MIT-LICENSE.
 В рельсе для форм, созданных через form_for
   enctype="multipart/form-data"
 прописывается автоматически, если в форме присутствует input file_field, но учитывая, что у нас в форме блок с картинкой изначально может отсутствовать, данный отрибут нужно прописать принудительно для формы в которую вы добавляете redditor
-  html: {multipart: true}
+  html: { multipart: true }
 
 Вероятно, на multipart можно забить, если все загрузки будут происходить через fileapi
 todo: проверить вариант загрузки через fileapi c последующим сохранением всей формы через submit.
@@ -17,22 +17,15 @@ todo: проверить вариант загрузки через fileapi c п
 
 Add gem to your Gemfile
 
-    gem 'fileapi'
     gem 'redditor'
 
 or
 
-    gem 'fileapi', :github => 'redde/fileapi'
     gem 'redditor', :github => 'redde/redditor'
 
 and
 
     bundle
-
-### TODO:
-add **fileapi** to automation dependencies
-
-
 
 Then generate migrations
 

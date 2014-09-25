@@ -3,8 +3,8 @@
 class RedditorUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
-  include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  # include CarrierWave::RMagick
+  include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
   storage :file
@@ -18,12 +18,12 @@ class RedditorUploader < CarrierWave::Uploader::Base
 
   version :admin do
     # process :resize_to_fit => [119, 119]
-    process :resize_and_pad => [119, 119, :transparent, ::Magick::CenterGravity]
+    process :resize_and_pad => [119, 119, :transparent, 'Center']
   end
 
   version :show do
-    process :resize_to_fill => [960, 640], :if => :is_slider?
-    process :resize_to_limit => [960, 3000], :if => :is_image?
+    process :resize_to_fill => [960, 640], if: :is_slider?
+    process :resize_to_limit => [960, 3000], if: :is_slider?
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:

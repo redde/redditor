@@ -1,6 +1,6 @@
 # coding: utf-8
 
-require 'spec_helper'
+require 'rails_helper'
 
 describe Redditor::Generators::ViewsGenerator do
   include GeneratorSpec::TestCase
@@ -15,6 +15,6 @@ describe Redditor::Generators::ViewsGenerator do
 
   it "generates views" do
     assert_directory "app/views/redditor/pages/_page.html.haml"
-  end 
+  end
 
 end
