@@ -1,10 +1,11 @@
 # coding: utf-8
 
-require 'spec_helper'
+require 'rails_helper'
 
 describe Redditor::Generators::ViewsGenerator do
   include GeneratorSpec::TestCase
   destination File.expand_path("../../../tmp", __FILE__)
+  arguments ['default']
 
   before(:all) do
     prepare_destination
@@ -14,7 +15,6 @@ describe Redditor::Generators::ViewsGenerator do
   after(:all) { FileUtils.rm_rf 'tmp' }
 
   it "generates views" do
-    assert_directory "app/views/redditor/pages/_page.html.haml"
-  end 
-
+    assert_directory "app/views/redditor/_page.html.haml"
+  end
 end

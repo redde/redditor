@@ -2,17 +2,16 @@
 ENV["RAILS_ENV"] ||= 'test'
 
 require File.expand_path("../dummy/config/environment", __FILE__)
+require 'rspec'
 require 'rspec/rails'
-require 'rspec/autorun'
-
 require 'factory_girl'
-FactoryGirl.find_definitions
-
 require 'generator_spec/test_case'
-
+require 'capybara'
 require 'capybara/rails'
 require 'capybara/rspec'
 require 'capybara/poltergeist'
+
+FactoryGirl.find_definitions
 
 Capybara.default_wait_time = ENV['CAPYBARA_WAIT_TIME'].present? ? ENV['CAPYBARA_WAIT_TIME'].to_i : 10
 
@@ -39,21 +38,14 @@ def clean_database
 end
 
 RSpec.configure do |config|
-  # ## Mock Framework
-  #
-  # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
-  #
-  # config.mock_with :mocha
-  # config.mock_with :flexmock
-  # config.mock_with :rr
-
   config.after(:all) do
-    if Rails.env.test? 
+    if Rails.env.test?
       FileUtils.rm_rf(Dir["#{Rails.root}/public/uploads"])
-    end 
+    end
   end
 
   config.include FactoryGirl::Syntax::Methods
+  config.include Capybara::DSL
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
@@ -73,7 +65,7 @@ RSpec.configure do |config|
 end
 
 def wait_until
-  require "timeout"
+  require 'timeout'
   Timeout.timeout(Capybara.default_wait_time) do
     sleep(0.1) until value = yield
     value

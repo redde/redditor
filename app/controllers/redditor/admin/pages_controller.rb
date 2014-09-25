@@ -9,7 +9,6 @@ class Redditor::Admin::PagesController < Redditor::Admin::BaseController
         "Redditor::#{klass.camelcase.gsub('Redditor::', '')}".constantize.find_by_id(info[:index]).update_attributes(position: info[:position]) rescue nil
       end
     end
-
-    render :nothing => true
+    render nothing: true
   end
 end

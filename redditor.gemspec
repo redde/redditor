@@ -19,9 +19,19 @@ Gem::Specification.new do |s|
   s.test_files    = s.files.grep(%r{^(test|spec|features)/})
   s.require_paths = ["lib"]
 
-  s.add_dependency "rails", ">= 4.0.0"
-  
+  s.add_dependency "rails", "~> 4.1.6"
+
+  s.add_runtime_dependency 'carrierwave'
+  s.add_runtime_dependency 'mini_magick'
+  s.add_runtime_dependency 'haml-rails'
+  s.add_runtime_dependency 'coffee-rails'
+  s.add_runtime_dependency 'jquery-rails'
+  s.add_runtime_dependency 'jquery-ui-rails'
+  s.add_runtime_dependency 'sass-rails'
+  s.add_runtime_dependency 'fileapi'
+
   s.add_development_dependency 'capybara'
+  s.add_development_dependency 'quiet_assets'
   s.add_development_dependency 'poltergeist'
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rspec-rails"

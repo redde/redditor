@@ -1,7 +1,6 @@
 # coding: utf-8
 
 class Redditor::Admin::ImagesController < Redditor::Admin::BaseController
-
   layout false
 
   def sort
@@ -10,7 +9,7 @@ class Redditor::Admin::ImagesController < Redditor::Admin::BaseController
       p.position = idx
       p.save
     end
-    render :nothing => true
+    render nothing: true
   end
 
   def create
@@ -24,10 +23,9 @@ class Redditor::Admin::ImagesController < Redditor::Admin::BaseController
   def destroy
     @image = Redditor::Image.find(params[:id])
     if @image.destroy
-      render :js => "$('#slider_block_image_#{@image.id}').remove()"
+      render js: "$('#slider_block_image_#{@image.id}').remove()"
     else
-      render :js => 'Ошибка! Изображение не было удалено.'
+      render js: 'Ошибка! Изображение не было удалено.'
     end
   end
-
 end

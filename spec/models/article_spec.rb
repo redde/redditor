@@ -1,9 +1,8 @@
 # coding: utf-8
 
-require 'spec_helper'
+require 'rails_helper'
 
 describe Article do
-
   context "TEXT" do
     let(:article) { create(:text_article) }
     it "have valid number of text blocks from page" do
@@ -36,5 +35,4 @@ describe Article do
       expect(article.page.content_blocks.count).to eq 3
     end
   end # context "VIDEO"
-  
 end
