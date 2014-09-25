@@ -1,0 +1,5 @@
+- if slider_block.images.any?
+  .flexible-slider
+    .flexible-slider__slides
+      = render partial: 'redditor/slider_block_image', collection: slider_block.images, as: :image
+    .flexible-slider__controls

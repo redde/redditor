@@ -23,5 +23,9 @@ module Redditor
     def content_blocks
       (text_blocks + video_blocks + images + slider_blocks).sort {|x, y| x.position <=> y.position}
     end
+
+    def to_partial_path
+      'redditor/page'
+    end
   end
 end

@@ -18,6 +18,10 @@ module Redditor
       ActiveModel::Name.new(self, nil, 'Image')
     end
 
+    def to_partial_path
+      'redditor/image'
+    end
+
     private
       def set_default_values
         self.position ||= 1000
