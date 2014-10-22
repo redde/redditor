@@ -6,8 +6,8 @@ class CreateRedditorVideoBlocks < ActiveRecord::Migration
       t.integer  "width"
       t.integer  "height"
       t.string   "youtube"
-      t.datetime "created_at", :null => false
-      t.datetime "updated_at", :null => false
+      t.datetime "created_at", null: false
+      t.datetime "updated_at", null: false
     end
     add_index :redditor_video_blocks, :page_id
   end

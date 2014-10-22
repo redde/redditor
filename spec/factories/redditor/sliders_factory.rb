@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :slider, class: Redditor::SliderBlock do
+  factory :slider, class: Redditor::TmpSliderBlock do
     after(:create) do |slider|
       3.times do
         create(:image, imageable_id: slider.id, imageable_type: slider.class.name)

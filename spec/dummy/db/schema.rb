@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130916155301) do
+ActiveRecord::Schema.define(version: 20141022152601) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "redditor_containers", force: true do |t|
+    t.string   "type"
+    t.integer  "position"
+    t.string   "redditable_type"
+    t.integer  "redditable_id"
+    t.text     "options"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -24,9 +34,11 @@ ActiveRecord::Schema.define(version: 20130916155301) do
     t.string   "imageable_type"
     t.integer  "position"
     t.string   "src"
-    t.string   "description"
+    t.string   "title"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "container_id"
+    t.text     "options"
   end
 
   add_index "redditor_images", ["imageable_id"], name: "index_redditor_images_on_imageable_id"
@@ -53,10 +65,11 @@ ActiveRecord::Schema.define(version: 20130916155301) do
 
   create_table "redditor_text_blocks", force: true do |t|
     t.integer  "page_id"
-    t.text     "body"
+    t.text     "content"
     t.integer  "position"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "container_id"
   end
 
   add_index "redditor_text_blocks", ["page_id"], name: "index_redditor_text_blocks_on_page_id"
@@ -66,9 +79,11 @@ ActiveRecord::Schema.define(version: 20130916155301) do
     t.integer  "position"
     t.integer  "width"
     t.integer  "height"
-    t.string   "youtube"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "link"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "container_id"
+    t.text     "options"
   end
 
   add_index "redditor_video_blocks", ["page_id"], name: "index_redditor_video_blocks_on_page_id"
