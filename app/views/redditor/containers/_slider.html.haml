@@ -1,0 +1,19 @@
+- if slider.images.any?
+  .row.mt15
+    %div{ class: "col-lg-12" }
+      .carousel.slide{"data-ride" => "carousel", "id" => "slider-#{slider.id}"}
+        %ol.carousel-indicators
+          - slider.images.order(:position).each_with_index do |image, index|
+            %li{"data-slide-to" => index, "data-target" => "#slider-#{slider.id}", class: ('active' if index.zero?)}
+        / Wrapper for slides
+        .carousel-inner
+          - slider.images.order(:position).each_with_index do |image, index|
+            .item{ class: "#{'active' if index == 0}" }
+              = image_tag image.src_url, alt: image.title
+              .carousel-caption= simple_format image.title
+
+        / Controls
+        %a.left.carousel-control{"data-slide" => "prev", "href" => "#slider-#{slider.id}", "role" => "button"}
+          %span.glyphicon.glyphicon-chevron-left.fa.fa-chevron-left
+        %a.right.carousel-control{"data-slide" => "next", "href" => "#slider-#{slider.id}", "role" => "button"}
+          %span.glyphicon.glyphicon-chevron-right.fa.fa-chevron-right

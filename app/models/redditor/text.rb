@@ -1,7 +1,7 @@
 # coding: utf-8
 
 module Redditor
-  class TextBlock < ActiveRecord::Base
+  class Text < ActiveRecord::Base
     self.table_name = "redditor_text_blocks"
 
     attr_accessor :object_id

@@ -1,0 +1,17 @@
+.rd__container{ "data-form-object" => f.object_name }
+  %span.rd__handle.fa.fa-arrows-v
+  %header.tar
+    = f.hidden_field :id, size: 4
+    = f.hidden_field :position
+    .rd__close
+      = f.check_box :_destroy
+      = f.label :_destroy, class: 'fa fa-remove rd__close__lbl'
+
+  %section.rd__inner.rd__images
+    = f.fields_for :images, f.object.images do |i|
+      = render 'image_fields', f: i
+
+  .tac.fileapi
+    %span.btn.btn-primary.relative.oh{:href => "#"}
+      Add Images
+      %input.rd__add-slider-images{:type => "file", name: 'image[src]'}

@@ -1,7 +1,0 @@
-%tr{id: "slider_block_image_#{img.object.id}"}
-  %td.redditor__sl-desc__cell-img
-    = image_tag img.object.src.url(:admin), class: 'redditor__sl-desc__img'
-  %td.redditor__sl-desc__cell-desc
-    = img.label :description, class: 'redditor__sl-desc__label'
-    = img.hidden_field :id
-    = img.text_area :description, class: 'nowred redditor__sl-desc__area', size: '100x7'

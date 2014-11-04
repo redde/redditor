@@ -1,0 +1,9 @@
+.rd__cell.rd__image{ "data-form-object" => f.object_name }
+  =# f.hidden_field :container_id
+  = f.hidden_field :position
+  = f.hidden_field :id
+  .rd__hor-handle.js-handle.fa.fa-arrows-h
+  = image_tag f.object.src, class: 'rd__image__img'
+  .form-group.mb0.oh{ class: ('has-error' if f.object.errors.any?) }
+    = f.file_field :src
+    = f.text_area :title, placeholder: 'Image title', class: 'rd__image__txt'

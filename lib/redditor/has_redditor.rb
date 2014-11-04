@@ -13,5 +13,9 @@ class << ActiveRecord::Base
     has_one :page, :as => :pageable, class_name: "Redditor::Page"
     accepts_nested_attributes_for :page
 
+    has_many :containers, -> { order :position }, as: :redditable, class_name: 'Redditor::Container'
+    accepts_nested_attributes_for :containers, allow_destroy: true
+    has_many :sliders, -> { order :position }, as: :redditable, class_name: 'Redditor::Slider'
+    accepts_nested_attributes_for :sliders, allow_destroy: true
   end
 end

@@ -1,9 +1,0 @@
-// заменил @page.pageable.class.name.downcase.to_sym
-// на      @page.pageable.class.model_name.name.downcase.to_sym
-// при переопределении model_name для модели вида class System::Main < System
-// System::Main.new.class.name => System::Main
-// System::Main.new.class.model_name.name => System
-
-= fields_for @page.pageable.class.model_name.name.downcase.to_sym, @page.pageable do |a|
-  = a.fields_for :page, :include_id => false do |p|
-    = render "redditor/admin/content_block", {p: p, content_block: content_block}

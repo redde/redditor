@@ -1,0 +1,4 @@
+%figure.image-front
+  = image_tag image.src_url, class: 'img-responsive', alt: image.title, title: image.title
+  - if image.title.present?
+    %figcaption= simple_format image.title

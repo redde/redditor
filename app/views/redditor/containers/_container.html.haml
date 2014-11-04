@@ -1,0 +1,11 @@
+.row.mt15
+  - klass = 12 / container.contents.count
+  - container.contents.each do |content|
+    %div{ class: "col-lg-#{klass}" }
+      - case content.class.name
+      - when 'Text'
+        = render 'containers/text', text: content
+      - when 'Video'
+        = render 'containers/video', video: content
+      - when 'Image'
+        = render 'containers/image', image: content

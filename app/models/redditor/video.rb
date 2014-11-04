@@ -1,5 +1,5 @@
 module Redditor
-  class VideoBlock < ActiveRecord::Base
+  class Video < ActiveRecord::Base
     self.table_name = "redditor_video_blocks"
 
     attr_accessor :object_id

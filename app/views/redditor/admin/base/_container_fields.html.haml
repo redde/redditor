@@ -1,0 +1,52 @@
+.rd__container{ "data-form-object" => f.object_name }
+  %span.rd__handle.fa.fa-arrows-v
+  %header.tar
+    = f.hidden_field :id, size: 4
+    = f.hidden_field :position
+    .rd__close
+      = f.check_box :_destroy
+      = f.label :_destroy, class: 'fa fa-remove rd__close__lbl'
+
+  - if defined?( put_in )
+    - case put_in
+    - when 'text' then f.object.texts.build
+    - when 'text-text' then 2.times { f.object.texts.build }
+    - when 'text-image'
+      - f.object.texts.build(position: 0)
+      - f.object.images.build(position: 1)
+    - when 'text-video'
+      - f.object.texts.build(position: 0)
+      - f.object.videos.build(position: 1)
+
+    - when 'video' then f.object.videos.build
+    - when 'video-video' then 2.times { f.object.videos.build }
+    - when 'video-text'
+      - f.object.videos.build(position: 0)
+      - f.object.texts.build(position: 1)
+    - when 'video-image'
+      - f.object.videos.build(position: 0)
+      - f.object.images.build(position: 1)
+
+    - when 'image' then f.object.images.build
+    - when 'image-image' then 2.times { f.object.images.build }
+    - when 'image-text'
+      - f.object.images.build(position: 0)
+      - f.object.texts.build(position: 1)
+    - when 'image-video'
+      - f.object.images.build(position: 0)
+      - f.object.videos.build(position: 1)
+
+  %section.rd__inner
+    - f.object.contents.each do |content|
+      - case content.class.name
+      - when 'Text'
+        = f.fields_for :texts, content, include_id: false do |v|
+          = render 'redditor/admin/base/text_fields', f: v
+      - when 'Video'
+        = f.fields_for :videos, content, include_id: false do |v|
+          = render 'redditor/admin/base/video_fields', f: v
+      - when 'Image'
+        = f.fields_for :images, content, include_id: false do |v|
+          = render 'redditor/admin/base/image_fields', f: v
+
+
