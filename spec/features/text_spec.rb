@@ -18,7 +18,6 @@ describe "Text block" do
   def delete_block() find("a.redditor__delete").click; end
 
   it "Saves text block to article", type: :feature, js: true do
-    pending
     add_block
     show_text_area
     find(".redditor__textarea").set("test text block")
@@ -49,7 +48,6 @@ describe "Text block" do
   end
 
   it "Saves text block to article on save button", type: :feature, js: true do
-    pending
     add_block
     show_text_area
     find("textarea").set("test text block")

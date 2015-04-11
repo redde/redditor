@@ -18,7 +18,7 @@ Capybara.default_wait_time = ENV['CAPYBARA_WAIT_TIME'].present? ? ENV['CAPYBARA_
 Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, {
     debug: false,
-    phantomjs_options: ['--load-images=no', '--disk-cache=false'],
+    # phantomjs_options: ['--load-images=no', '--disk-cache=false'],
     js_errors: false
   })
 end

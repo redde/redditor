@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.test_files    = s.files.grep(%r{^(test|spec|features)/})
   s.require_paths = ["lib"]
 
-  s.add_dependency "rails", "~> 4.1.6"
+  s.add_dependency "rails", ">= 4.0.0"
 
   s.add_runtime_dependency 'carrierwave'
   s.add_runtime_dependency 'mini_magick'
@@ -38,4 +38,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "guard-rspec"
   s.add_development_dependency 'generator_spec'
   s.add_development_dependency "factory_girl_rails"
+  s.add_development_dependency "launchy"
 end
